@@ -147,15 +147,63 @@
         <div class="flex items-end justify-between gap-6 flex-wrap">
           <div>
             <h2 class="text-3xl sm:text-4xl font-headline font-extrabold tracking-tight">Popular calculators</h2>
-            <p class="mt-4 text-slate-600 text-lg">Lead magnets that help users understand their numbers before speaking to you.</p>
+            <p class="mt-4 text-slate-600 text-lg">Useful tools for SIP, lumpsum, retirement and insurance planning. These cards are clickable and the calculators below actually work.</p>
           </div>
-          <a href="https://wa.me/918882332050?text=Hi%2C%20I%20need%20help%20with%20financial%20planning%20and%20calculators." target="_blank" class="rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white hover:bg-emerald-700">Need help choosing?</a>
+          <a href="https://wa.me/918882332050?text=Hi%2C%20I%20need%20help%20choosing%20the%20right%20calculator%20and%20investment%20plan." target="_blank" class="rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white hover:bg-emerald-700">Need help choosing?</a>
         </div>
         <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-6"><h3 class="font-bold text-lg">SIP Calculator</h3><p class="mt-2 text-slate-600">Estimate long-term SIP growth.</p></div>
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-6"><h3 class="font-bold text-lg">Lumpsum Calculator</h3><p class="mt-2 text-slate-600">Know corpus potential from one-time investments.</p></div>
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-6"><h3 class="font-bold text-lg">Retirement Calculator</h3><p class="mt-2 text-slate-600">Plan future monthly income needs.</p></div>
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-6"><h3 class="font-bold text-lg">Insurance Need Calculator</h3><p class="mt-2 text-slate-600">Estimate practical cover required for your family.</p></div>
+          <a href="#sip-calculator" class="rounded-2xl bg-slate-50 border border-slate-200 p-6 hover:border-emerald-400 hover:shadow-md transition"><h3 class="font-bold text-lg">SIP Calculator</h3><p class="mt-2 text-slate-600">Estimate long-term SIP growth.</p></a>
+          <a href="#lumpsum-calculator" class="rounded-2xl bg-slate-50 border border-slate-200 p-6 hover:border-emerald-400 hover:shadow-md transition"><h3 class="font-bold text-lg">Lumpsum Calculator</h3><p class="mt-2 text-slate-600">Know corpus potential from one-time investments.</p></a>
+          <a href="#retirement-calculator" class="rounded-2xl bg-slate-50 border border-slate-200 p-6 hover:border-emerald-400 hover:shadow-md transition"><h3 class="font-bold text-lg">Retirement Calculator</h3><p class="mt-2 text-slate-600">Plan future monthly income needs.</p></a>
+          <a href="#insurance-calculator" class="rounded-2xl bg-slate-50 border border-slate-200 p-6 hover:border-emerald-400 hover:shadow-md transition"><h3 class="font-bold text-lg">Insurance Need Calculator</h3><p class="mt-2 text-slate-600">Estimate practical cover required for your family.</p></a>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-2 gap-8">
+          <div id="sip-calculator" class="rounded-3xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="text-2xl font-bold">SIP Calculator</h3>
+            <div class="mt-6 grid sm:grid-cols-3 gap-4">
+              <div><label class="block text-sm font-medium text-slate-700">Monthly SIP (₹)</label><input id="sipMonthly" type="number" value="5000" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Return %</label><input id="sipRate" type="number" value="12" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Years</label><input id="sipYears" type="number" value="10" class="mt-2 w-full rounded-xl border-slate-300"></div>
+            </div>
+            <button onclick="calcSip()" class="mt-5 rounded-xl bg-slate-900 px-5 py-3 text-white font-semibold">Calculate SIP</button>
+            <div class="mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-5"><div class="text-sm text-slate-600">Estimated maturity value</div><div id="sipResult" class="mt-1 text-2xl font-extrabold text-slate-900">₹0</div></div>
+          </div>
+
+          <div id="lumpsum-calculator" class="rounded-3xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="text-2xl font-bold">Lumpsum Calculator</h3>
+            <div class="mt-6 grid sm:grid-cols-3 gap-4">
+              <div><label class="block text-sm font-medium text-slate-700">Investment (₹)</label><input id="lumpAmount" type="number" value="100000" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Return %</label><input id="lumpRate" type="number" value="12" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Years</label><input id="lumpYears" type="number" value="5" class="mt-2 w-full rounded-xl border-slate-300"></div>
+            </div>
+            <button onclick="calcLumpsum()" class="mt-5 rounded-xl bg-slate-900 px-5 py-3 text-white font-semibold">Calculate Lumpsum</button>
+            <div class="mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-5"><div class="text-sm text-slate-600">Projected corpus</div><div id="lumpResult" class="mt-1 text-2xl font-extrabold text-slate-900">₹0</div></div>
+          </div>
+
+          <div id="retirement-calculator" class="rounded-3xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="text-2xl font-bold">Retirement Calculator</h3>
+            <div class="mt-6 grid sm:grid-cols-2 gap-4">
+              <div><label class="block text-sm font-medium text-slate-700">Current age</label><input id="retAge" type="number" value="35" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Retirement age</label><input id="retTargetAge" type="number" value="60" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Monthly expense today (₹)</label><input id="retExpense" type="number" value="50000" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Inflation %</label><input id="retInflation" type="number" value="6" class="mt-2 w-full rounded-xl border-slate-300"></div>
+            </div>
+            <button onclick="calcRetirement()" class="mt-5 rounded-xl bg-slate-900 px-5 py-3 text-white font-semibold">Calculate Retirement</button>
+            <div class="mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-5"><div class="text-sm text-slate-600">Indicative corpus needed</div><div id="retResult" class="mt-1 text-2xl font-extrabold text-slate-900">₹0</div></div>
+          </div>
+
+          <div id="insurance-calculator" class="rounded-3xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="text-2xl font-bold">Insurance Need Calculator</h3>
+            <div class="mt-6 grid sm:grid-cols-2 gap-4">
+              <div><label class="block text-sm font-medium text-slate-700">Annual income (₹)</label><input id="insIncome" type="number" value="1200000" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Outstanding loans (₹)</label><input id="insLoan" type="number" value="2000000" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Existing cover (₹)</label><input id="insCover" type="number" value="1000000" class="mt-2 w-full rounded-xl border-slate-300"></div>
+              <div><label class="block text-sm font-medium text-slate-700">Years family support needed</label><input id="insYears" type="number" value="15" class="mt-2 w-full rounded-xl border-slate-300"></div>
+            </div>
+            <button onclick="calcInsurance()" class="mt-5 rounded-xl bg-slate-900 px-5 py-3 text-white font-semibold">Estimate Cover</button>
+            <div class="mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-5"><div class="text-sm text-slate-600">Indicative life cover</div><div id="insResult" class="mt-1 text-2xl font-extrabold text-slate-900">₹0</div></div>
+          </div>
         </div>
       </div>
     </section>
@@ -165,25 +213,25 @@
         <div class="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 class="text-3xl sm:text-4xl font-headline font-extrabold tracking-tight">Telegram portfolio bot</h2>
-            <p class="mt-4 text-slate-600 text-lg">Give visitors a reason to come back. Use your bot as a daily engagement tool that can turn curious users into long-term clients.</p>
+            <p class="mt-4 text-slate-600 text-lg">Use the bot to qualify leads, collect numbers, and move serious prospects to WhatsApp quickly.</p>
             <ul class="mt-6 space-y-3 text-slate-700">
-              <li>• Track portfolio on Telegram</li>
-              <li>• Add or remove mutual funds</li>
-              <li>• View scheme details and summaries</li>
-              <li>• Use bot engagement as a conversion funnel</li>
+              <li>• Get SIP, tax saving and portfolio help inside Telegram</li>
+              <li>• Capture phone numbers for faster callback</li>
+              <li>• Move serious leads to WhatsApp instantly</li>
+              <li>• Use the bot as a lead-qualification funnel</li>
             </ul>
             <div class="mt-8 flex flex-wrap gap-4">
-              <a href="https://t.me/JustInvestingBot" target="_blank" class="rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white hover:bg-slate-800">Open Telegram Bot</a>
-              <a href="https://wa.me/918882332050?text=Hi%2C%20I%20want%20to%20use%20the%20Telegram%20portfolio%20bot." target="_blank" class="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-800 hover:bg-slate-100">Get Help on WhatsApp</a>
+              <a href="https://t.me/Mfddelhibot" target="_blank" class="rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white hover:bg-slate-800">Open Telegram Bot</a>
+              <a href="https://wa.me/918882332050?text=Hi%2C%20I%20need%20help%20with%20mutual%20funds%20or%20SIP%20planning." target="_blank" class="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-800 hover:bg-slate-100">Get Help on WhatsApp</a>
             </div>
           </div>
           <div class="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-700 p-8 text-white shadow-xl">
-            <h3 class="text-2xl font-headline font-extrabold">Suggested funnel</h3>
+            <h3 class="text-2xl font-headline font-extrabold">Why users should use it</h3>
             <div class="mt-6 space-y-4 text-slate-100">
-              <div class="rounded-2xl bg-white/10 p-4">1. User visits website from Google Ads or SEO</div>
-              <div class="rounded-2xl bg-white/10 p-4">2. Clicks WhatsApp or opens Telegram bot</div>
-              <div class="rounded-2xl bg-white/10 p-4">3. You follow up with product guidance</div>
-              <div class="rounded-2xl bg-white/10 p-4">4. Conversion into SIP, insurance or future lead</div>
+              <div class="rounded-2xl bg-white/10 p-4">1. Quick help for SIP, tax saving and portfolio review</div>
+              <div class="rounded-2xl bg-white/10 p-4">2. Share mobile number only when ready for callback</div>
+              <div class="rounded-2xl bg-white/10 p-4">3. Move directly to WhatsApp if immediate assistance is needed</div>
+              <div class="rounded-2xl bg-white/10 p-4">4. Faster response from your team on warm leads</div>
             </div>
           </div>
         </div>
@@ -230,5 +278,13 @@
     WhatsApp
   </a>
 
+<script>
+function formatINR(v){return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(v||0)}
+function calcSip(){const P=+document.getElementById('sipMonthly').value||0;const annual=+document.getElementById('sipRate').value||0;const years=+document.getElementById('sipYears').value||0;const r=annual/12/100;const n=years*12;const fv=r===0?P*n:P*(((Math.pow(1+r,n)-1)/r)*(1+r));document.getElementById('sipResult').textContent=formatINR(Math.round(fv));}
+function calcLumpsum(){const P=+document.getElementById('lumpAmount').value||0;const annual=+document.getElementById('lumpRate').value||0;const years=+document.getElementById('lumpYears').value||0;const fv=P*Math.pow(1+annual/100,years);document.getElementById('lumpResult').textContent=formatINR(Math.round(fv));}
+function calcRetirement(){const age=+document.getElementById('retAge').value||0;const target=+document.getElementById('retTargetAge').value||0;const exp=+document.getElementById('retExpense').value||0;const inf=+document.getElementById('retInflation').value||0;const years=Math.max(target-age,0);const futureExpense=exp*Math.pow(1+inf/100,years);const corpus=futureExpense*12*20;document.getElementById('retResult').textContent=formatINR(Math.round(corpus));}
+function calcInsurance(){const income=+document.getElementById('insIncome').value||0;const loan=+document.getElementById('insLoan').value||0;const cover=+document.getElementById('insCover').value||0;const years=+document.getElementById('insYears').value||0;const needed=Math.max((income*years)+loan-cover,0);document.getElementById('insResult').textContent=formatINR(Math.round(needed));}
+calcSip();calcLumpsum();calcRetirement();calcInsurance();
+</script>
 </body>
 </html>
