@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blog - JustInvesting | Premium Wealth Management Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#4f3d00",
+              "secondary": "#006e2f",
+              "secondary-container": "#6bff8f",
+              "surface-bright": "#f7f9fb",
+              "on-tertiary-fixed": "#241a00",
+              "error": "#ba1a1a",
+              "on-primary-container": "#8293b5",
+              "on-surface": "#191c1e",
+              "background": "#f7f9fb",
+              "secondary-fixed-dim": "#4ae176",
+              "surface-container-low": "#f2f4f6",
+              "on-tertiary-fixed-variant": "#574500",
+              "primary-fixed-dim": "#b6c7eb",
+              "secondary-fixed": "#6bff8f",
+              "primary": "#031632",
+              "surface-variant": "#e0e3e5",
+              "on-primary-fixed": "#081b38",
+              "on-error": "#ffffff",
+              "tertiary": "#735c00",
+              "on-error-container": "#93000a",
+              "primary-container": "#1a2b48",
+              "surface-container-highest": "#e0e3e5",
+              "tertiary-fixed-dim": "#e9c349",
+              "outline": "#75777e",
+              "tertiary-fixed": "#ffe088",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#44474d",
+              "inverse-on-surface": "#eff1f3",
+              "on-primary-fixed-variant": "#374765",
+              "on-primary": "#ffffff",
+              "surface": "#f7f9fb",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#cca730",
+              "primary-fixed": "#d7e2ff",
+              "inverse-primary": "#b6c7eb",
+              "surface-container": "#eceef0",
+              "on-background": "#191c1e",
+              "on-secondary-container": "#007432",
+              "surface-tint": "#4e5f7e",
+              "outline-variant": "#c5c6ce",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#d8dadc",
+              "inverse-surface": "#2d3133",
+              "on-secondary-fixed": "#002109",
+              "on-secondary-fixed-variant": "#005321",
+              "surface-container-high": "#e6e8ea",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white" href="index.html">JustInvesting</a>
+<div class="hidden md:flex items-center gap-6 font-['Manrope'] font-semibold tracking-tight">
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="index.html">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="about.html">About</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="mutual-funds.html">Mutual Funds</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="insurance.html">Insurance</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="calculators.html">Calculators</a>
+<a class="text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 pb-1" href="blog.html">Blog</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden lg:flex items-center gap-2 px-4 py-2 text-emerald-700 dark:text-emerald-500 font-semibold hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200 rounded-lg" href="telegram.html">
+<span class="material-symbols-outlined text-sm">send</span> Telegram
+                </a>
+<a class="bg-primary text-on-primary px-5 py-2.5 rounded-lg font-semibold scale-95 active:opacity-80 transition-transform" href="contact.html">Contact</a>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full"></div>
+</nav>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+<!-- Editorial Header -->
+<header class="mb-16 md:ml-10">
+<h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter text-primary mb-4">The Wealth Journal</h1>
+<p class="text-on-surface-variant text-xl max-w-2xl leading-relaxed">
+                Expert insights on capital growth, risk management, and the nuances of the modern financial landscape.
+            </p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Blog Listing (9 Columns) -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Featured Post -->
+<article class="group cursor-pointer relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/5">
+<div class="grid md:grid-cols-2">
+<div class="h-64 md:h-full">
+<img class="w-full h-full object-cover" data-alt="Modern office interior with large windows and clean wooden desk showing a laptop with financial charts and warm morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt5GsMoYeCb1Ku3qMjW7vlUGhMfUNSTU7QeFXAYwoZUA5hsSEWQKMrOeNuJSdz98rMztrf4mujdBs1WewXM2IUcCBHowP-G9XjmZtU4W2p8GRk972xbCU6VJC-XXge8IbNtPZNxv8ZkfhNGOYIOy1fcJp3LCL0-IUnHwsVfPwl847weYxLDgCWp8Ay3n0iKGgOvI5l5W7rFTmLSwQFq5jc4Gek4BLXDNo6W11tY2_Bd5K-d70jgs2_qTxc2pGP-Sa2enT-AEFNWHw"/>
+</div>
+<div class="p-8 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-secondary-container text-on-secondary-container text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Featured</span>
+<span class="text-on-surface-variant text-xs font-medium">12 Min Read</span>
+</div>
+<h2 class="text-3xl font-bold text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Navigating Market Volatility: A Long-term Strategy for 2024</h2>
+<p class="text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">
+                                Understanding market cycles is crucial for any investor. We dive deep into how to maintain a resilient portfolio when volatility strikes and why patience remains your greatest asset.
+                            </p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a middle-aged male financial advisor in a suit with a soft grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEnLQ_EAjROmorBT3puBj4D_dKFjI-MYRuk-c2Ui6Ae11CFU-J-ri7Ka8ZgiYHKyXgEyIsj5KKOY-in_rnZd2Ul4KQAWBBNshGyzw4L7UADeFCgWyKTDjzikiQNsgz81M74s1U3-we3J0ZGidjuYaaZlf2FT9prNrFj0veNd8RvGnNYxX0bhSULWDDNHeME_HZulvSu18RFpwKNpFYK0nBHNTWMyr88uXjRaxDI9xwQTQIfpR5aZzgkSO7raUZFGUUxzZDMaNG7cQ"/>
+</div>
+<span class="text-sm font-semibold text-primary">Marcus Sterling</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Grid Posts -->
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Post 2 -->
+<article class="bg-surface-container-lowest p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 border-b-2 border-transparent hover:border-secondary">
+<img class="w-full h-48 object-cover rounded-lg mb-6" data-alt="Golden coins stacked on a reflecting surface with a soft bokeh green background representing growth and wealth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydyxUA-BGCgxVZKJWSmm0EphkekSFTd0FGyJLav0d75ecrso47RvftmKZnRzW3TnNTpKqrSkp5RwHvAiDImTkzwg1hxiSOKv4xGWJnVNCKmfg4201vWOZ7dmMf9p8f6SlLxIMeE7Rw4Fyja8X1yyzfZ5jRMUf3ZScbTDZRgdW_ZUsFDgL6hW7J0ZJst8PVnoW0IOEjtsTJqzo-svXlzrIBEJFoQyfjGnm7RQo8YpIf7wUHpP5aSD1wC71ufLSmmMizusJcLaWdgI"/>
+<span class="text-secondary text-xs font-bold uppercase tracking-widest mb-2 block">Mutual Funds</span>
+<h3 class="text-xl font-bold text-primary mb-3">SIP vs Lumpsum: Deciding Your Entry Point</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                            A comparative analysis of investment styles to help you maximize compounding while managing entry risk.
+                        </p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Oct 24, 2023</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</article>
+<!-- Post 3 -->
+<article class="bg-surface-container-lowest p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 border-b-2 border-transparent hover:border-secondary">
+<img class="w-full h-48 object-cover rounded-lg mb-6" data-alt="A person signing professional financial documents with a fountain pen on high quality paper with warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3H-x9tr--orWjcMzc-zzHNln2IVt0O8WK6SvgQS5uo3OPuXJbS-UNz7PspFvYrvOgzPQeXINbptSbijEnGsk9RtnXf5QB6E42BQ_F3iB05pWb46qXBwd9ksE1cRfC9WuEyE3_rxuc1M4JfjAu2gNOsJDmr-gBJz6vURYHcJL_S8DsHiy1cZ08rZeGY_bD9yu-05ZHx8ErcWp9Ucs449sfrb1oUKDzg-9vesIBx1_Y4DHbcaD2P7XHxBxSj__rjGoc-y0IcPkeCXs"/>
+<span class="text-secondary text-xs font-bold uppercase tracking-widest mb-2 block">Insurance</span>
+<h3 class="text-xl font-bold text-primary mb-3">Why Term Life Insurance is a Core Asset</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                            Debunking the myth that insurance is just an expense. Discover why it's the foundation of any wealth plan.
+                        </p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Oct 20, 2023</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</article>
+<!-- Post 4 -->
+<article class="bg-surface-container-lowest p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 border-b-2 border-transparent hover:border-secondary">
+<img class="w-full h-48 object-cover rounded-lg mb-6" data-alt="Close up of a calculator and financial ledger on a dark grey surface with professional blue lighting tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnpy33hi12VgS1_KOiKrJGerUa175eaLiYXMBwBvvcD-lWYR1ZiEJRnUd0mWXWb--Jp91kQ4ZYbXKpaLkT0JdbOqtsvDXllAXpCScY1O11iMFqLzW9fFm6k-e4Wzc4tckZqmKfz1cVqeqO0PMo8Gyzhh8ZJmetJomcFwBZpKnNWYHEOWvJji9G402hb6OFcS05tpuF3A59Nw-hJMY4nnJxZiwmDoZi7Jyy9xr5aoQmVihPyFqBwtXxtLS1B7TnQXh9poRydBuYw1k"/>
+<span class="text-secondary text-xs font-bold uppercase tracking-widest mb-2 block">Tax Saving</span>
+<h3 class="text-xl font-bold text-primary mb-3">Maximizing ELSS Benefits this Season</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                            Strategic tax planning through Equity Linked Savings Schemes to optimize your returns and liabilities.
+                        </p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Oct 15, 2023</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</article>
+<!-- Post 5 -->
+<article class="bg-surface-container-lowest p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 border-b-2 border-transparent hover:border-secondary">
+<img class="w-full h-48 object-cover rounded-lg mb-6" data-alt="High-end leather wallet and brass keys on a mahogany table with soft moody lighting representing personal finance security" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcphxKxnhe8_KLA1y1I8ZxRVSLzvC1qcZs33ZYR0V2zNp4M6cpnhh9XcZH5xlZTjE3H-Qa_Qy9tq-0gPBFMnFvOU62QHGpj288unvatJ2Lq56NoDJny5kmyNeoLy8l0BI5BiH8PQDI1GSKU0v6VBKwtXkELDStUKd1K4PIU5Am30YjQ1evTnXAKA1kN0osa171Ptg-zxP8NeSxbHDUwxpgmRSKNF978lf0kV8O72vcJvoCa2UC_v4gAxiA1zdfHXSg-fco5sAVIEg"/>
+<span class="text-secondary text-xs font-bold uppercase tracking-widest mb-2 block">Personal Finance</span>
+<h3 class="text-xl font-bold text-primary mb-3">The Psychology of Spending vs Investing</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                            How behavioral biases affect your wealth accumulation and how to train your mind for prosperity.
+                        </p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Oct 12, 2023</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center gap-4 mt-8">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-container-high transition-colors font-bold border border-outline-variant/20">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-container-high transition-colors font-bold border border-outline-variant/20">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Sidebar (3 Columns) -->
+<aside class="lg:col-span-4 space-y-12">
+<!-- Search Section -->
+<div class="bg-surface-container-low p-8 rounded-xl">
+<h4 class="text-lg font-bold text-primary mb-6">Search Insight</h4>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:outline-none placeholder:text-outline-variant" placeholder="Topics, funds, or keywords..." type="text"/>
+<button class="absolute right-3 top-2.5 text-primary">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<!-- Categories -->
+<div class="p-2">
+<h4 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+<span class="w-1 h-6 bg-secondary rounded-full"></span>
+                        Categories
+                    </h4>
+<nav class="space-y-2">
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-high transition-all group" href="mutual-funds.html">
+<span class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Mutual Funds</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-on-surface-variant">24</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-high transition-all group" href="insurance.html">
+<span class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Insurance</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-on-surface-variant">12</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-high transition-all group" href="#">
+<span class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Tax Saving</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-on-surface-variant">18</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-high transition-all group" href="#">
+<span class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Personal Finance</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-on-surface-variant">31</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-high transition-all group" href="#">
+<span class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Market Analysis</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-on-surface-variant">09</span>
+</a>
+</nav>
+</div>
+<!-- Recent Posts -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm">
+<h4 class="text-lg font-bold text-primary mb-6">Recent Posts</h4>
+<div class="space-y-6">
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" data-alt="Stock market tickers on a digital screen with glowing green and red numbers in a dark environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbOs572NzWLy-qX53QSl6AxxFtB1KQjFANMlW0-lpPzFLcnKAosP-KvDWamatDgc6DmuUx95AeG68ekX9Y066D0sWypIe-sn1HXnEcjSRBG8yUYBXmQjZaQ1kJVwOniwqzBGVPgJmROitdRcLcRrrUNNXzKUAsnMW7VqdjpXTqu_uvlpZ5tbXawivwWSct7oRnsCmIZw6Im3W0OfOMVKUNLNutOwAV6ZnYKQ7mvdg0yUWLmaaZeln0hYCaXv-ZA4Pqq3NHerfk10c"/>
+</div>
+<div>
+<h5 class="text-sm font-bold text-primary line-clamp-2 leading-tight group-hover:text-secondary mb-1 transition-colors">Why Index Funds are Winning in 2024</h5>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Oct 26, 2023</span>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" data-alt="Close up of dollar bills stacked neatly with a focus on the texture of the paper and professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-mCjSQ6RytYtA2ZHdHbj6XBTMTbEF00Ab0xJhO8IM8e1NII6YhO6WFGd8uSPjFLEoPfba-Lq6GWANLS9D2M3lRdRy53i7NM4HeRF6cWtCaBYcCzBm_aiHYx6wWWKxqpeC1egdVmUw74pJ-2ngVU62zWJ6F_inIDjzFdRV-cyDK5RpOCpyQ6d5VVN4cUX_y_HlAW721ZyWuQjHWvNBadKSF268IOhZPtPTc0MYEU6_ODPFsmMKJmn63KqG8vf2oEoQjDcerNY-X2k"/>
+</div>
+<div>
+<h5 class="text-sm font-bold text-primary line-clamp-2 leading-tight group-hover:text-secondary mb-1 transition-colors">The Power of Rupee Cost Averaging</h5>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Oct 24, 2023</span>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" data-alt="Modern high-rise residential building with sleek glass architecture reflecting the blue sky at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn2-m4QBap_nu5T3P5JghAn5B-ulZOWJ87pfTTEbdy1piGkjcJoOI-raeOapQPdBjSzzlxffdO4Ad575SE-v80ubDXgyxpyPzs8Zjck7qJPlPlbdIloUGGpEX1zmEXM5YbRd4FJY9xTB9GgWICEKBpGQYO_h6zOi554onImL8f8o__g0DQCrSGiA4VM50z6LSJHfVn-KjZ-kVufxr6bnZPJ3Sp5DSY9YlNSc3S8eDG_-6shONdzSXuMY0wNNayN-tlCMF7ouojvw4"/>
+</div>
+<div>
+<h5 class="text-sm font-bold text-primary line-clamp-2 leading-tight group-hover:text-secondary mb-1 transition-colors">Real Estate vs REITs: A Guide</h5>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Oct 22, 2023</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Newsletter Card -->
+<div class="bg-primary-container p-8 rounded-xl text-white">
+<h4 class="text-xl font-bold mb-3">Stay Informed</h4>
+<p class="text-on-primary-container text-sm mb-6 leading-relaxed">
+                        Join 25,000+ investors receiving our weekly brief on markets and wealth management.
+                    </p>
+<div class="space-y-3">
+<input class="w-full bg-white/10 border-white/20 rounded-lg px-4 py-3 text-sm focus:ring-secondary focus:border-secondary" placeholder="Your work email" type="email"/>
+<button class="w-full bg-secondary text-white font-bold py-3 rounded-lg hover:bg-secondary/90 transition-colors">Subscribe Now</button>
+</div>
+<p class="text-[10px] text-on-primary-container mt-4 text-center">No spam, only alpha. Unsubscribe anytime.</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 font-['Inter'] text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto px-8 py-12">
+<div class="md:col-span-1">
+<a class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4" href="index.html">JustInvesting</a>
+<p class="mb-4">Crafting premium wealth journeys through data-driven insights and artisanal financial planning.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-emerald-700 cursor-pointer">public</span>
+<span class="material-symbols-outlined text-emerald-700 cursor-pointer">account_balance</span>
+<span class="material-symbols-outlined text-emerald-700 cursor-pointer">trending_up</span>
+</div>
+</div>
+<div>
+<h6 class="font-bold text-slate-800 dark:text-slate-200 mb-4 text-sm">Services</h6>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-emerald-600 transition-colors" href="contact.html">Portfolio Review</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-emerald-600 transition-colors" href="#">Wealth Management</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-emerald-600 transition-colors" href="#">Tax Optimization</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold text-slate-800 dark:text-slate-200 mb-4 text-sm">Quick Links</h6>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-emerald-600 transition-colors" href="privacy.html">Privacy Policy</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-emerald-600 transition-colors" href="terms.html">Terms of Service</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-emerald-600 transition-colors" href="disclosure.html">Disclosure</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-emerald-600 transition-colors" href="sitemap.html">Sitemap</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:underline hover:text-emerald-600 transition-colors" href="grievance.html">Grievance Redressal</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold text-slate-800 dark:text-slate-200 mb-4 text-sm">Legal Disclaimer</h6>
+<p class="text-[10px]">© 2024 JustInvesting. All rights reserved. Mutual Fund ARN: 356088. Mutual fund investments are subject to market risks, read all scheme related documents carefully.</p>
+</div>
+</div>
+<div class="mt-6 text-xs leading-5 text-slate-500"><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-1">Insurance is the subject matter of solicitation.</p><p class="mt-1">Mutual fund distribution under ARN-356088.</p><p class="mt-1">Insurance assistance available through InsuranceDekho and Square Insurance.</p><p class="mt-1"><span class="font-semibold text-slate-700">Phone:</span> <a class="hover:text-emerald-600" href="tel:+918882332050">+91 8882332050</a></p><p class="mt-1"><span class="font-semibold text-slate-700">Address:</span> Beri Wala Bagh, Hari Nagar, New Delhi - 110064</p></div></footer>
+</body></html>

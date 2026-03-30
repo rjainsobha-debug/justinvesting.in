@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us | JustInvesting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#4f3d00",
+              "secondary": "#006e2f",
+              "secondary-container": "#6bff8f",
+              "surface-bright": "#f7f9fb",
+              "on-tertiary-fixed": "#241a00",
+              "error": "#ba1a1a",
+              "on-primary-container": "#8293b5",
+              "on-surface": "#191c1e",
+              "background": "#f7f9fb",
+              "secondary-fixed-dim": "#4ae176",
+              "surface-container-low": "#f2f4f6",
+              "on-tertiary-fixed-variant": "#574500",
+              "primary-fixed-dim": "#b6c7eb",
+              "secondary-fixed": "#6bff8f",
+              "primary": "#031632",
+              "surface-variant": "#e0e3e5",
+              "on-primary-fixed": "#081b38",
+              "on-error": "#ffffff",
+              "tertiary": "#735c00",
+              "on-error-container": "#93000a",
+              "primary-container": "#1a2b48",
+              "surface-container-highest": "#e0e3e5",
+              "tertiary-fixed-dim": "#e9c349",
+              "outline": "#75777e",
+              "tertiary-fixed": "#ffe088",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#44474d",
+              "inverse-on-surface": "#eff1f3",
+              "on-primary-fixed-variant": "#374765",
+              "on-primary": "#ffffff",
+              "surface": "#f7f9fb",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#cca730",
+              "primary-fixed": "#d7e2ff",
+              "inverse-primary": "#b6c7eb",
+              "surface-container": "#eceef0",
+              "on-background": "#191c1e",
+              "on-secondary-container": "#007432",
+              "surface-tint": "#4e5f7e",
+              "outline-variant": "#c5c6ce",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#d8dadc",
+              "inverse-surface": "#2d3133",
+              "on-secondary-fixed": "#002109",
+              "on-secondary-fixed-variant": "#005321",
+              "surface-container-high": "#e6e8ea",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+<a class="text-2xl font-bold tracking-tighter text-slate-900" href="index.html">JustInvesting</a>
+<div class="hidden md:flex items-center space-x-8 font-headline font-semibold tracking-tight">
+<a class="text-slate-600 hover:text-emerald-600 transition-colors" href="index.html">Home</a>
+<a class="text-slate-600 hover:text-emerald-600 transition-colors" href="about.html">About</a>
+<a class="text-slate-600 hover:text-emerald-600 transition-colors" href="mutual-funds.html">Mutual Funds</a>
+<a class="text-slate-600 hover:text-emerald-600 transition-colors" href="insurance.html">Insurance</a>
+<a class="text-slate-600 hover:text-emerald-600 transition-colors" href="calculators.html">Calculators</a>
+<a class="text-slate-600 hover:text-emerald-600 transition-colors" href="blog.html">Blog</a>
+<a class="text-emerald-700 border-b-2 border-emerald-600 pb-1" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center space-x-4">
+<a class="hidden md:block text-slate-600 font-headline font-semibold" href="telegram.html">Telegram</a>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-5 py-2 rounded-lg font-semibold shadow-lg hover:scale-95 transition-transform">
+                    Login
+                </button>
+</div>
+</nav>
+<div class="bg-slate-100 h-[1px] w-full"></div>
+</header>
+<main class="pt-32 pb-24">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Hero Section / Header -->
+<div class="mb-16">
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold text-primary tracking-tight mb-4 max-w-2xl">
+                    Experience bespoke <span class="text-secondary">wealth management</span>
+</h1>
+<p class="text-on-surface-variant text-xl max-w-xl leading-relaxed">
+                    Our advisors are ready to help you navigate your financial future with precision and care.
+                </p>
+</div>
+<!-- Main Contact Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Contact Form Section (Bento Style Card) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.05)]">
+<h2 class="font-headline text-2xl font-bold text-primary mb-8">Send us a message</h2>
+<form action="https://formsubmit.co/rahul23jain@gmail.com" class="space-y-8" method="POST"><p class="text-sm text-slate-500">This form is configured to send enquiries directly to the registered email inbox.</p><input name="_next" type="hidden" value="https://justinvesting.in/contact.html?success=1"/><input name="_template" type="hidden" value="table"/><input name="_captcha" type="hidden" value="false"/><input name="_subject" type="hidden" value="New JustInvesting lead"/>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant tracking-wide">Name</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all px-0 py-3 text-lg placeholder:text-outline-variant" id="name" name="name" placeholder="John Doe" required="required" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant tracking-wide">Email</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all px-0 py-3 text-lg placeholder:text-outline-variant" id="email" name="email" placeholder="john@example.com" required="required" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant tracking-wide">Phone</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all px-0 py-3 text-lg placeholder:text-outline-variant" id="phone" name="phone" placeholder="+91 98765 43210" required="required" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant tracking-wide">Requirement</label>
+<select class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all px-0 py-3 text-lg text-on-surface-variant" id="requirement" name="requirement" required="required">
+<option>Wealth Management</option>
+<option>Mutual Fund Investment</option>
+<option>Insurance Planning</option>
+<option>Tax Consulting</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant tracking-wide">Message (Optional)</label>
+<textarea class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all px-0 py-3 text-lg placeholder:text-outline-variant resize-none" id="message" name="message" placeholder="Tell us more about your financial goals..." rows="3"></textarea>
+</div>
+<div class="pt-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-10 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all" type="submit">
+                                Request Callback
+                            </button>
+</div>
+<div class="mt-10 rounded-xl border border-emerald-100 bg-emerald-50/60 p-5 text-sm leading-6 text-slate-700"><p class="font-semibold text-slate-900 mb-2">Important Disclosures</p><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-2">Insurance is the subject matter of solicitation. Policy issuance, features, benefits, exclusions and claims are subject to the insurer’s terms and conditions.</p><p class="mt-2">Past performance is not indicative of future returns. Returns shown in calculators or illustrations are only estimates and do not guarantee future performance.</p><p class="mt-2">Mutual fund transactions and related assistance are offered under ARN-356088. Insurance products, where applicable, are facilitated through InsuranceDekho and Square Insurance subject to their respective policy terms and insurer approvals.</p></div></form>
+</div>
+<!-- Contact Info & Map Section -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Info Card -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-10">
+<div>
+<h3 class="font-headline text-xl font-bold text-primary mb-6">Contact Details</h3>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="bg-primary-fixed p-3 rounded-lg text-primary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant">Phone</p>
+<p class="text-lg font-bold text-primary">+91 8882332050</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="bg-secondary-container p-3 rounded-lg text-secondary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant">Email</p>
+<p class="text-lg font-bold text-primary">rahul23jain@gmail.com</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="bg-tertiary-container p-3 rounded-lg text-on-tertiary-container">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant">Office</p>
+<p class="text-lg font-bold text-primary leading-snug">Beri Wala Bagh, Hari Nagar, New Delhi - 110064</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/30">
+<h3 class="text-sm font-bold text-primary uppercase tracking-widest mb-4">Connect With Us</h3>
+<div class="flex space-x-4">
+<a class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all" href="https://wa.me/918882332050?text=Hi%20I%20am%20interested%20in%20your%20financial%20services.">
+<span class="material-symbols-outlined">send</span>
+</a>
+<a class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all" href="https://wa.me/918882332050?text=Hi%20I%20am%20interested%20in%20your%20financial%20services.">
+<span class="material-symbols-outlined" data-weight="fill">share</span>
+</a>
+<a class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all" href="https://wa.me/918882332050?text=Hi%20I%20am%20interested%20in%20your%20financial%20services.">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Map Placeholder -->
+<div class="relative h-64 w-full rounded-xl overflow-hidden shadow-lg group">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Modern high-angle view of Mumbai Bandra Kurla Complex skyline with architectural glass buildings and sleek infrastructure" data-location="Mumbai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhcrC-KPq-_nwAQR8_90lNkdH_pbuSnNqChF2uhwXgMEpEa3ezennSkqPMEXNB66dCcLmBwA2DoyvNChbmUhb-ZY_XBBK-HxgX_O47EGjPf_QkMR8RUc4LETToVi4qkg9ay7iqaji9DOUTQYwD-f3vU7S_ZHZRg5LEwjbhqUF-dbaczdvGG0_6g0NZLTGb5Xv5he4uMvixZ3z796YVxABHkahy98KEFtldSTzf7Rxmy4SaxRhRfzlBahRvOkurvkRpV-odRHjXak4"/>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<div class="bg-white px-6 py-3 rounded-full flex items-center space-x-2 shadow-xl">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-bold text-primary">Our Delhi Office</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Section -->
+<div class="mt-24 py-16 border-t border-outline-variant/20 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center md:text-left">
+<p class="text-4xl font-headline font-extrabold text-primary">15k+</p>
+<p class="text-on-surface-variant font-medium">HNI Clients</p>
+</div>
+<div class="text-center md:text-left">
+<p class="text-4xl font-headline font-extrabold text-secondary">₹500Cr+</p>
+<p class="text-on-surface-variant font-medium">Assets Managed</p>
+</div>
+<div class="text-center md:text-left">
+<p class="text-4xl font-headline font-extrabold text-tertiary">ARN</p>
+<p class="text-on-surface-variant font-medium">Registered INA</p>
+</div>
+<div class="text-center md:text-left">
+<p class="text-4xl font-headline font-extrabold text-primary">24/7</p>
+<p class="text-on-surface-variant font-medium">Advisory Support</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-slate-50">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto px-8 py-12">
+<div class="md:col-span-1 space-y-4">
+<a class="text-lg font-bold text-slate-800" href="index.html">JustInvesting</a>
+<p class="font-body text-xs leading-relaxed text-slate-500">
+                    Premium wealth management services tailored for modern investors. We focus on transparency, integrity, and performance.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="text-sm font-bold text-primary">Quick Links</h4>
+<ul class="space-y-2">
+<li><a class="text-xs text-slate-500 hover:text-emerald-600 transition-colors" href="mutual-funds.html">Mutual Funds</a></li>
+<li><a class="text-xs text-slate-500 hover:text-emerald-600 transition-colors" href="contact.html">Portfolio Review</a></li>
+<li><a class="text-xs text-slate-500 hover:text-emerald-600 transition-colors" href="https://wa.me/918882332050?text=Hi%20I%20am%20interested%20in%20your%20financial%20services.">Risk Assessment</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-sm font-bold text-primary">Company</h4>
+<ul class="space-y-2">
+<li><a class="text-xs text-slate-500 hover:text-emerald-600 transition-colors" href="https://wa.me/918882332050?text=Hi%20I%20am%20interested%20in%20your%20financial%20services.">Privacy Policy</a></li>
+<li><a class="text-xs text-slate-500 hover:text-emerald-600 transition-colors" href="https://wa.me/918882332050?text=Hi%20I%20am%20interested%20in%20your%20financial%20services.">Terms of Service</a></li>
+<li><a class="text-xs text-slate-500 hover:text-emerald-600 transition-colors" href="https://wa.me/918882332050?text=Hi%20I%20am%20interested%20in%20your%20financial%20services.">Disclosure</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-sm font-bold text-primary">Compliance</h4>
+<p class="text-xs text-slate-400">Mutual Fund ARN: 356088. All investments are subject to market risks.</p>
+<div class="flex space-x-4 pt-2">
+<span class="material-symbols-outlined text-slate-400">verified_user</span>
+<span class="material-symbols-outlined text-slate-400">security</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 pb-8 text-[10px] text-slate-400 text-center uppercase tracking-widest">
+            © 2024 JustInvesting. All rights reserved. Mutual Fund ARN: 356088.
+        </div>
+<div class="mt-6 text-xs leading-5 text-slate-500"><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-1">Insurance is the subject matter of solicitation.</p><p class="mt-1">Mutual fund distribution under ARN-356088.</p><p class="mt-1">Insurance assistance available through InsuranceDekho and Square Insurance.</p><p class="mt-1"><span class="font-semibold text-slate-700">Phone:</span> <a class="hover:text-emerald-600" href="tel:+918882332050">+91 8882332050</a></p><p class="mt-1"><span class="font-semibold text-slate-700">Address:</span> Beri Wala Bagh, Hari Nagar, New Delhi - 110064</p></div></footer>
+</body></html>

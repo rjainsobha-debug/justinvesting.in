@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Financial Calculators | JustInvesting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#4f3d00",
+              "secondary": "#006e2f",
+              "secondary-container": "#6bff8f",
+              "surface-bright": "#f7f9fb",
+              "on-tertiary-fixed": "#241a00",
+              "error": "#ba1a1a",
+              "on-primary-container": "#8293b5",
+              "on-surface": "#191c1e",
+              "background": "#f7f9fb",
+              "secondary-fixed-dim": "#4ae176",
+              "surface-container-low": "#f2f4f6",
+              "on-tertiary-fixed-variant": "#574500",
+              "primary-fixed-dim": "#b6c7eb",
+              "secondary-fixed": "#6bff8f",
+              "primary": "#031632",
+              "surface-variant": "#e0e3e5",
+              "on-primary-fixed": "#081b38",
+              "on-error": "#ffffff",
+              "tertiary": "#735c00",
+              "on-error-container": "#93000a",
+              "primary-container": "#1a2b48",
+              "surface-container-highest": "#e0e3e5",
+              "tertiary-fixed-dim": "#e9c349",
+              "outline": "#75777e",
+              "tertiary-fixed": "#ffe088",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#44474d",
+              "inverse-on-surface": "#eff1f3",
+              "on-primary-fixed-variant": "#374765",
+              "on-primary": "#ffffff",
+              "surface": "#f7f9fb",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#cca730",
+              "primary-fixed": "#d7e2ff",
+              "inverse-primary": "#b6c7eb",
+              "surface-container": "#eceef0",
+              "on-background": "#191c1e",
+              "on-secondary-container": "#007432",
+              "surface-tint": "#4e5f7e",
+              "outline-variant": "#c5c6ce",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#d8dadc",
+              "inverse-surface": "#2d3133",
+              "on-secondary-fixed": "#002109",
+              "on-secondary-fixed-variant": "#005321",
+              "surface-container-high": "#e6e8ea",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        .editorial-shadow {
+            box-shadow: 0 24px 40px rgba(25, 28, 30, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+<a class="text-2xl font-bold tracking-tighter text-primary font-headline" href="index.html">JustInvesting</a>
+<div class="hidden md:flex items-center space-x-8 font-headline font-semibold tracking-tight">
+<a class="text-slate-600 hover:text-secondary transition-colors" href="index.html">Home</a>
+<a class="text-slate-600 hover:text-secondary transition-colors" href="about.html">About</a>
+<a class="text-slate-600 hover:text-secondary transition-colors" href="mutual-funds.html">Mutual Funds</a>
+<a class="text-slate-600 hover:text-secondary transition-colors" href="insurance.html">Insurance</a>
+<a class="text-secondary border-b-2 border-secondary pb-1" href="calculators.html">Calculators</a>
+<a class="text-slate-600 hover:text-secondary transition-colors" href="blog.html">Blog</a>
+</div>
+<div class="flex items-center space-x-4">
+<a class="px-4 py-2 text-primary font-semibold hover:bg-surface-container-low transition-all duration-200 rounded-lg" href="contact.html">Contact</a>
+<a class="bg-gradient-to-br from-primary to-primary-container px-5 py-2.5 text-white font-semibold rounded-lg shadow-md transition-transform active:scale-95" href="telegram.html">Telegram</a>
+</div>
+</div>
+<div class="bg-surface-container-highest h-[1px] w-full opacity-30"></div>
+</nav>
+<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-16">
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold text-primary tracking-tight mb-4">Precision Planning</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                Empower your wealth journey with our bespoke financial calculators. Engineered for accuracy, designed for clarity.
+            </p>
+</header>
+<!-- Bento Grid Calculators -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- 1. SIP Calculator -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col md:flex-row gap-8 border border-outline-variant/10">
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<h2 class="font-headline text-2xl font-bold text-primary">SIP Calculator</h2>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-on-surface-variant mb-2">Monthly Investment (₹)</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-3 px-0 text-xl font-semibold" placeholder="5,000" type="number"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-on-surface-variant mb-2">Expected Return (%)</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-3 px-0 text-xl font-semibold" placeholder="12" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-on-surface-variant mb-2">Time Period (Yrs)</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-3 px-0 text-xl font-semibold" placeholder="10" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-64 bg-surface-container-low rounded-xl p-6 flex flex-col justify-between">
+<div>
+<p class="text-on-surface-variant text-sm font-medium mb-1">Total Value</p>
+<h3 class="text-3xl font-headline font-extrabold text-primary">₹11,61,695</h3>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<p class="text-on-surface-variant text-xs mb-1">Estimated Wealth Gain</p>
+<p class="text-secondary font-bold text-lg">+ ₹5,61,695</p>
+</div>
+<a class="w-full mt-4 bg-primary text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity" href="contact.html">Invest Now</a>
+</div>
+</div>
+<!-- 2. Lumpsum Calculator -->
+<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-tertiary text-2xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+<h2 class="font-headline text-xl font-bold text-primary">Lumpsum</h2>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-on-surface-variant mb-2">Total Investment</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-2 px-0 text-lg font-semibold" placeholder="1,00,000" type="number"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-2 px-0 text-lg font-semibold" placeholder="12%" type="number"/>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-2 px-0 text-lg font-semibold" placeholder="5 Yrs" type="number"/>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-high">
+<p class="text-on-surface-variant text-xs uppercase tracking-widest font-bold">Projected Corpus</p>
+<p class="text-4xl font-headline font-extrabold text-primary mt-2">₹1,76,234</p>
+</div>
+</div>
+</div>
+<!-- 3. Step-up SIP Calculator -->
+<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<h2 class="font-headline text-xl font-bold text-primary">Step-up SIP</h2>
+</div>
+<div class="space-y-5">
+<input class="w-full border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 py-2 text-lg font-semibold bg-transparent" placeholder="Initial SIP: 10,000" type="number"/>
+<input class="w-full border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 py-2 text-lg font-semibold bg-transparent" placeholder="Annual Step-up: 10%" type="number"/>
+<input class="w-full border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 py-2 text-lg font-semibold bg-transparent" placeholder="Duration: 15 Yrs" type="number"/>
+<div class="mt-4 p-4 bg-secondary-container/10 rounded-lg">
+<p class="text-on-secondary-container text-xs font-bold uppercase mb-1">Future Value</p>
+<p class="text-2xl font-headline font-bold text-secondary">₹84,23,500</p>
+</div>
+</div>
+</div>
+<!-- 4. Retirement Calculator -->
+<div class="lg:col-span-2 bg-primary text-white p-8 rounded-xl editorial-shadow relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row gap-12">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-tertiary-fixed text-3xl">park</span>
+<h2 class="font-headline text-3xl font-bold">Retirement Planner</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div>
+<label class="block text-xs font-bold text-primary-fixed uppercase tracking-wider mb-2">Current Age</label>
+<input class="w-full bg-transparent border-0 border-b border-primary-fixed-dim/40 focus:border-white focus:ring-0 py-2 text-xl font-bold placeholder:text-primary-fixed-dim/30" placeholder="30" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-primary-fixed uppercase tracking-wider mb-2">Retirement Age</label>
+<input class="w-full bg-transparent border-0 border-b border-primary-fixed-dim/40 focus:border-white focus:ring-0 py-2 text-xl font-bold placeholder:text-primary-fixed-dim/30" placeholder="60" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-primary-fixed uppercase tracking-wider mb-2">Monthly Expense</label>
+<input class="w-full bg-transparent border-0 border-b border-primary-fixed-dim/40 focus:border-white focus:ring-0 py-2 text-xl font-bold placeholder:text-primary-fixed-dim/30" placeholder="50,000" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-primary-fixed uppercase tracking-wider mb-2">Expected Inflation</label>
+<input class="w-full bg-transparent border-0 border-b border-primary-fixed-dim/40 focus:border-white focus:ring-0 py-2 text-xl font-bold placeholder:text-primary-fixed-dim/30" placeholder="6%" type="number"/>
+</div>
+</div>
+</div>
+<div class="md:w-80 flex flex-col justify-center">
+<div class="p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10">
+<p class="text-primary-fixed text-sm mb-2">Corpus Needed at 60</p>
+<h3 class="text-4xl font-headline font-black mb-6">₹4.2 Cr</h3>
+<p class="text-xs text-primary-fixed-dim leading-relaxed mb-6">To maintain your lifestyle post-retirement with 6% inflation, you need this target corpus.</p>
+<button class="w-full bg-tertiary-container text-on-tertiary-container font-bold py-3 rounded-lg shadow-lg">Get Detailed Plan</button>
+</div>
+</div>
+</div>
+<!-- Abstract BG Shape -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+</div>
+<!-- 5. SWP Calculator -->
+<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<h2 class="font-headline text-xl font-bold text-primary">SWP Calculator</h2>
+</div>
+<div class="space-y-4">
+<div class="group">
+<p class="text-xs text-on-surface-variant font-medium mb-1">Total Investment</p>
+<input class="w-full border-0 border-b border-outline-variant/30 focus:border-secondary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="50,00,000" type="number"/>
+</div>
+<div class="group">
+<p class="text-xs text-on-surface-variant font-medium mb-1">Monthly Withdrawal</p>
+<input class="w-full border-0 border-b border-outline-variant/30 focus:border-secondary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="30,000" type="number"/>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase">Remaining Balance</p>
+<p class="text-3xl font-headline font-bold text-primary mt-1">₹62.4 Lac</p>
+</div>
+<span class="text-secondary text-sm font-bold">10 Yrs period</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 6. Child Education Planner -->
+<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10 flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">school</span>
+<h2 class="font-headline text-xl font-bold text-primary">Education Planner</h2>
+</div>
+<div class="space-y-6 flex-1">
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant font-medium">Child's Current Age</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 rounded-lg bg-surface-container-low text-primary font-bold border border-outline-variant/20 hover:bg-secondary hover:text-white transition-all">Under 5</button>
+<button class="flex-1 py-2 rounded-lg bg-surface-container-low text-primary font-bold border border-outline-variant/20 hover:bg-secondary hover:text-white transition-all">5-10</button>
+</div>
+</div>
+<div class="group">
+<p class="text-xs text-on-surface-variant font-medium mb-1">Current Cost of Higher Ed</p>
+<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="25,00,000" type="number"/>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-surface-container-high">
+<p class="text-xs font-bold text-on-surface-variant mb-1">SIP Required Monthly</p>
+<p class="text-3xl font-headline font-bold text-secondary">₹14,500</p>
+</div>
+</div>
+<!-- 7. EMI Calculator -->
+<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-error text-2xl" style="font-variation-settings: 'FILL' 1;">home_mini</span>
+<h2 class="font-headline text-xl font-bold text-primary">EMI Calculator</h2>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold bg-transparent" placeholder="Loan: 50L" type="number"/>
+<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold bg-transparent" placeholder="Interest: 8.5%" type="number"/>
+</div>
+<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold bg-transparent" placeholder="Tenure: 20 Yrs" type="number"/>
+<div class="mt-10 p-6 bg-surface-bright rounded-xl flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant mb-1">Monthly EMI</p>
+<p class="text-2xl font-headline font-black text-primary">₹43,391</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/20 text-4xl">receipt_long</span>
+</div>
+</div>
+</div>
+<!-- 8. Insurance Need Calculator -->
+<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">security</span>
+<h2 class="font-headline text-xl font-bold text-primary">Insurance Need</h2>
+</div>
+<div class="space-y-4">
+<div class="group">
+<p class="text-xs text-on-surface-variant font-medium mb-1">Annual Income</p>
+<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="12,00,000" type="number"/>
+</div>
+<div class="group">
+<p class="text-xs text-on-surface-variant font-medium mb-1">Current Liabilities</p>
+<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="20,00,000" type="number"/>
+</div>
+<div class="mt-8 bg-tertiary-container/10 p-5 rounded-lg border-l-4 border-tertiary">
+<p class="text-on-tertiary-container text-xs font-bold uppercase mb-1">Recommended Life Cover</p>
+<p class="text-3xl font-headline font-bold text-on-tertiary-container">₹2.4 Cr</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<section class="mt-24 bg-surface-container-low rounded-3xl p-12 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline text-3xl font-bold text-primary mb-6">Need a personalized financial strategy?</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto mb-10 leading-relaxed">Our expert advisors combine technology with human insight to build a portfolio that stands the test of time.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl transition-all hover:-translate-y-1">Book a Consultation</button>
+<button class="bg-white text-primary border border-outline-variant/30 px-8 py-4 rounded-xl font-bold text-lg shadow-sm transition-all hover:bg-surface-bright">Download App</button>
+</div>
+</div>
+<!-- Decorative Grain/Texture Gradient simulated -->
+<div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(0,110,47,0.2),transparent_70%)]"></div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-slate-50 border-t border-slate-200">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 py-16">
+<div class="md:col-span-1">
+<h3 class="text-lg font-bold text-slate-800 mb-6 font-headline">JustInvesting</h3>
+<p class="text-xs leading-relaxed text-slate-500 font-body">Premium Wealth Management solutions for the modern investor. Mutual fund distribution and insurance assistance services.</p>
+<div class="flex gap-4 mt-8">
+<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">share</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">mail</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline text-sm font-bold text-primary mb-6">Products</h4>
+<ul class="space-y-4 text-xs text-slate-500">
+<li><a class="hover:text-secondary transition-colors" href="mutual-funds.html">Mutual Funds</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Tax Saving ELSS</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Retirement Funds</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Gold Investments</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline text-sm font-bold text-primary mb-6">Company</h4>
+<ul class="space-y-4 text-xs text-slate-500">
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Disclosure</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Grievance Redressal</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline text-sm font-bold text-primary mb-6">Newsletter</h4>
+<p class="text-xs text-slate-500 mb-4">Stay ahead with weekly financial insights.</p>
+<div class="flex">
+<input class="w-full bg-white border-outline-variant/20 rounded-l-lg text-xs p-3 focus:ring-primary focus:border-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-3 rounded-r-lg">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 pb-12">
+<div class="bg-slate-200 h-[1px] w-full mb-8"></div>
+<p class="text-[10px] leading-relaxed text-slate-400 text-center uppercase tracking-widest">
+                © 2024 JustInvesting. All rights reserved. Mutual Fund ARN: 356088. Mutual fund investments are subject to market risks, read all scheme related documents carefully.
+            </p>
+</div>
+<div class="mt-6 text-xs leading-5 text-slate-500"><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-1">Insurance is the subject matter of solicitation.</p><p class="mt-1">Mutual fund distribution under ARN-356088.</p><p class="mt-1">Insurance assistance available through InsuranceDekho and Square Insurance.</p><p class="mt-1"><span class="font-semibold text-slate-700">Phone:</span> <a class="hover:text-emerald-600" href="tel:+918882332050">+91 8882332050</a></p><p class="mt-1"><span class="font-semibold text-slate-700">Address:</span> Beri Wala Bagh, Hari Nagar, New Delhi - 110064</p></div><div class="max-w-7xl mx-auto px-8 pb-8"><div class="mt-10 rounded-xl border border-emerald-100 bg-emerald-50/60 p-5 text-sm leading-6 text-slate-700"><p class="font-semibold text-slate-900 mb-2">Important Disclosures</p><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-2">Insurance is the subject matter of solicitation. Policy issuance, features, benefits, exclusions and claims are subject to the insurer’s terms and conditions.</p><p class="mt-2">Past performance is not indicative of future returns. Returns shown in calculators or illustrations are only estimates and do not guarantee future performance.</p><p class="mt-2">Mutual fund transactions and related assistance are offered under ARN-356088. Insurance products, where applicable, are facilitated through InsuranceDekho and Square Insurance subject to their respective policy terms and insurer approvals.</p></div></div></footer>
+</body></html>
