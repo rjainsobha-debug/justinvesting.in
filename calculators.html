@@ -1,385 +1,626 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Financial Calculators | JustInvesting</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-tertiary-container": "#4f3d00",
-              "secondary": "#006e2f",
-              "secondary-container": "#6bff8f",
-              "surface-bright": "#f7f9fb",
-              "on-tertiary-fixed": "#241a00",
-              "error": "#ba1a1a",
-              "on-primary-container": "#8293b5",
-              "on-surface": "#191c1e",
-              "background": "#f7f9fb",
-              "secondary-fixed-dim": "#4ae176",
-              "surface-container-low": "#f2f4f6",
-              "on-tertiary-fixed-variant": "#574500",
-              "primary-fixed-dim": "#b6c7eb",
-              "secondary-fixed": "#6bff8f",
-              "primary": "#031632",
-              "surface-variant": "#e0e3e5",
-              "on-primary-fixed": "#081b38",
-              "on-error": "#ffffff",
-              "tertiary": "#735c00",
-              "on-error-container": "#93000a",
-              "primary-container": "#1a2b48",
-              "surface-container-highest": "#e0e3e5",
-              "tertiary-fixed-dim": "#e9c349",
-              "outline": "#75777e",
-              "tertiary-fixed": "#ffe088",
-              "on-secondary": "#ffffff",
-              "on-surface-variant": "#44474d",
-              "inverse-on-surface": "#eff1f3",
-              "on-primary-fixed-variant": "#374765",
-              "on-primary": "#ffffff",
-              "surface": "#f7f9fb",
-              "surface-container-lowest": "#ffffff",
-              "tertiary-container": "#cca730",
-              "primary-fixed": "#d7e2ff",
-              "inverse-primary": "#b6c7eb",
-              "surface-container": "#eceef0",
-              "on-background": "#191c1e",
-              "on-secondary-container": "#007432",
-              "surface-tint": "#4e5f7e",
-              "outline-variant": "#c5c6ce",
-              "on-tertiary": "#ffffff",
-              "surface-dim": "#d8dadc",
-              "inverse-surface": "#2d3133",
-              "on-secondary-fixed": "#002109",
-              "on-secondary-fixed-variant": "#005321",
-              "surface-container-high": "#e6e8ea",
-              "error-container": "#ffdad6"
-            },
-            fontFamily: {
-              "headline": ["Manrope"],
-              "body": ["Inter"],
-              "label": ["Inter"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Financial Calculators | JustInvesting</title>
+  <meta name="description" content="Interactive SIP, Lumpsum, Step-up SIP, Retirement, EMI, SWP, Education and Insurance calculators for smarter planning with JustInvesting."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container": "#4f3d00",
+            "secondary": "#006e2f",
+            "secondary-container": "#6bff8f",
+            "surface-bright": "#f7f9fb",
+            "on-tertiary-fixed": "#241a00",
+            "error": "#ba1a1a",
+            "on-primary-container": "#8293b5",
+            "on-surface": "#191c1e",
+            "background": "#f7f9fb",
+            "secondary-fixed-dim": "#4ae176",
+            "surface-container-low": "#f2f4f6",
+            "on-tertiary-fixed-variant": "#574500",
+            "primary-fixed-dim": "#b6c7eb",
+            "secondary-fixed": "#6bff8f",
+            "primary": "#031632",
+            "surface-variant": "#e0e3e5",
+            "on-primary-fixed": "#081b38",
+            "on-error": "#ffffff",
+            "tertiary": "#735c00",
+            "on-error-container": "#93000a",
+            "primary-container": "#1a2b48",
+            "surface-container-highest": "#e0e3e5",
+            "tertiary-fixed-dim": "#e9c349",
+            "outline": "#75777e",
+            "tertiary-fixed": "#ffe088",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#44474d",
+            "inverse-on-surface": "#eff1f3",
+            "on-primary-fixed-variant": "#374765",
+            "on-primary": "#ffffff",
+            "surface": "#f7f9fb",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#cca730",
+            "primary-fixed": "#d7e2ff",
+            "inverse-primary": "#b6c7eb",
+            "surface-container": "#eceef0",
+            "on-background": "#191c1e",
+            "on-secondary-container": "#007432",
+            "surface-tint": "#4e5f7e",
+            "outline-variant": "#c5c6ce",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#d8dadc",
+            "inverse-surface": "#2d3133",
+            "on-secondary-fixed": "#002109",
+            "on-secondary-fixed-variant": "#005321",
+            "surface-container-high": "#e6e8ea",
+            "error-container": "#ffdad6"
           },
-        },
+          fontFamily: {
+            headline: ['Manrope'],
+            body: ['Inter'],
+            label: ['Inter']
+          },
+          boxShadow: {
+            soft: '0 24px 50px rgba(3, 22, 50, 0.08)'
+          }
+        }
       }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(16px);
-        }
-        .editorial-shadow {
-            box-shadow: 0 24px 40px rgba(25, 28, 30, 0.05);
-        }
-    </style>
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-headline { font-family: 'Manrope', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+    .glass-nav { background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(16px); }
+    .card-glow { box-shadow: 0 20px 40px rgba(3, 22, 50, 0.05); }
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(3,22,50,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(3,22,50,0.03) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    input[type=range] { accent-color: #006e2f; }
+    .calc-card:hover { transform: translateY(-3px); }
+  </style>
 </head>
-<body class="bg-surface font-body text-on-surface">
-<!-- Top Navigation Shell -->
-<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
-<a class="text-2xl font-bold tracking-tighter text-primary font-headline" href="index.html">JustInvesting</a>
-<div class="hidden md:flex items-center space-x-8 font-headline font-semibold tracking-tight">
-<a class="text-slate-600 hover:text-secondary transition-colors" href="index.html">Home</a>
-<a class="text-slate-600 hover:text-secondary transition-colors" href="about.html">About</a>
-<a class="text-slate-600 hover:text-secondary transition-colors" href="mutual-funds.html">Mutual Funds</a>
-<a class="text-slate-600 hover:text-secondary transition-colors" href="insurance.html">Insurance</a>
-<a class="text-secondary border-b-2 border-secondary pb-1" href="calculators.html">Calculators</a>
-<a class="text-slate-600 hover:text-secondary transition-colors" href="blog.html">Blog</a>
-</div>
-<div class="flex items-center space-x-4">
-<a class="px-4 py-2 text-primary font-semibold hover:bg-surface-container-low transition-all duration-200 rounded-lg" href="contact.html">Contact</a>
-<a class="bg-gradient-to-br from-primary to-primary-container px-5 py-2.5 text-white font-semibold rounded-lg shadow-md transition-transform active:scale-95" href="telegram.html">Telegram</a>
-</div>
-</div>
-<div class="bg-surface-container-highest h-[1px] w-full opacity-30"></div>
-</nav>
-<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
-<!-- Hero Header -->
-<header class="mb-16">
-<h1 class="font-headline text-5xl md:text-6xl font-extrabold text-primary tracking-tight mb-4">Precision Planning</h1>
-<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
-                Empower your wealth journey with our bespoke financial calculators. Engineered for accuracy, designed for clarity.
-            </p>
-</header>
-<!-- Bento Grid Calculators -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- 1. SIP Calculator -->
-<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col md:flex-row gap-8 border border-outline-variant/10">
-<div class="flex-1 space-y-6">
-<div class="flex items-center gap-3 mb-2">
-<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
-<h2 class="font-headline text-2xl font-bold text-primary">SIP Calculator</h2>
-</div>
-<div class="space-y-4">
-<div>
-<label class="block text-sm font-medium text-on-surface-variant mb-2">Monthly Investment (₹)</label>
-<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-3 px-0 text-xl font-semibold" placeholder="5,000" type="number"/>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div>
-<label class="block text-sm font-medium text-on-surface-variant mb-2">Expected Return (%)</label>
-<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-3 px-0 text-xl font-semibold" placeholder="12" type="number"/>
-</div>
-<div>
-<label class="block text-sm font-medium text-on-surface-variant mb-2">Time Period (Yrs)</label>
-<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-3 px-0 text-xl font-semibold" placeholder="10" type="number"/>
-</div>
-</div>
-</div>
-</div>
-<div class="md:w-64 bg-surface-container-low rounded-xl p-6 flex flex-col justify-between">
-<div>
-<p class="text-on-surface-variant text-sm font-medium mb-1">Total Value</p>
-<h3 class="text-3xl font-headline font-extrabold text-primary">₹11,61,695</h3>
-</div>
-<div class="pt-4 border-t border-outline-variant/20">
-<p class="text-on-surface-variant text-xs mb-1">Estimated Wealth Gain</p>
-<p class="text-secondary font-bold text-lg">+ ₹5,61,695</p>
-</div>
-<a class="w-full mt-4 bg-primary text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity" href="contact.html">Invest Now</a>
-</div>
-</div>
-<!-- 2. Lumpsum Calculator -->
-<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-tertiary text-2xl" style="font-variation-settings: 'FILL' 1;">payments</span>
-<h2 class="font-headline text-xl font-bold text-primary">Lumpsum</h2>
-</div>
-<div class="space-y-6">
-<div>
-<label class="block text-sm font-medium text-on-surface-variant mb-2">Total Investment</label>
-<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-2 px-0 text-lg font-semibold" placeholder="1,00,000" type="number"/>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-2 px-0 text-lg font-semibold" placeholder="12%" type="number"/>
-<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-2 px-0 text-lg font-semibold" placeholder="5 Yrs" type="number"/>
-</div>
-<div class="mt-8 pt-6 border-t border-surface-container-high">
-<p class="text-on-surface-variant text-xs uppercase tracking-widest font-bold">Projected Corpus</p>
-<p class="text-4xl font-headline font-extrabold text-primary mt-2">₹1,76,234</p>
-</div>
-</div>
-</div>
-<!-- 3. Step-up SIP Calculator -->
-<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
-<h2 class="font-headline text-xl font-bold text-primary">Step-up SIP</h2>
-</div>
-<div class="space-y-5">
-<input class="w-full border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 py-2 text-lg font-semibold bg-transparent" placeholder="Initial SIP: 10,000" type="number"/>
-<input class="w-full border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 py-2 text-lg font-semibold bg-transparent" placeholder="Annual Step-up: 10%" type="number"/>
-<input class="w-full border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 py-2 text-lg font-semibold bg-transparent" placeholder="Duration: 15 Yrs" type="number"/>
-<div class="mt-4 p-4 bg-secondary-container/10 rounded-lg">
-<p class="text-on-secondary-container text-xs font-bold uppercase mb-1">Future Value</p>
-<p class="text-2xl font-headline font-bold text-secondary">₹84,23,500</p>
-</div>
-</div>
-</div>
-<!-- 4. Retirement Calculator -->
-<div class="lg:col-span-2 bg-primary text-white p-8 rounded-xl editorial-shadow relative overflow-hidden">
-<div class="relative z-10 flex flex-col md:flex-row gap-12">
-<div class="flex-1">
-<div class="flex items-center gap-3 mb-8">
-<span class="material-symbols-outlined text-tertiary-fixed text-3xl">park</span>
-<h2 class="font-headline text-3xl font-bold">Retirement Planner</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-<div>
-<label class="block text-xs font-bold text-primary-fixed uppercase tracking-wider mb-2">Current Age</label>
-<input class="w-full bg-transparent border-0 border-b border-primary-fixed-dim/40 focus:border-white focus:ring-0 py-2 text-xl font-bold placeholder:text-primary-fixed-dim/30" placeholder="30" type="number"/>
-</div>
-<div>
-<label class="block text-xs font-bold text-primary-fixed uppercase tracking-wider mb-2">Retirement Age</label>
-<input class="w-full bg-transparent border-0 border-b border-primary-fixed-dim/40 focus:border-white focus:ring-0 py-2 text-xl font-bold placeholder:text-primary-fixed-dim/30" placeholder="60" type="number"/>
-</div>
-<div>
-<label class="block text-xs font-bold text-primary-fixed uppercase tracking-wider mb-2">Monthly Expense</label>
-<input class="w-full bg-transparent border-0 border-b border-primary-fixed-dim/40 focus:border-white focus:ring-0 py-2 text-xl font-bold placeholder:text-primary-fixed-dim/30" placeholder="50,000" type="number"/>
-</div>
-<div>
-<label class="block text-xs font-bold text-primary-fixed uppercase tracking-wider mb-2">Expected Inflation</label>
-<input class="w-full bg-transparent border-0 border-b border-primary-fixed-dim/40 focus:border-white focus:ring-0 py-2 text-xl font-bold placeholder:text-primary-fixed-dim/30" placeholder="6%" type="number"/>
-</div>
-</div>
-</div>
-<div class="md:w-80 flex flex-col justify-center">
-<div class="p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10">
-<p class="text-primary-fixed text-sm mb-2">Corpus Needed at 60</p>
-<h3 class="text-4xl font-headline font-black mb-6">₹4.2 Cr</h3>
-<p class="text-xs text-primary-fixed-dim leading-relaxed mb-6">To maintain your lifestyle post-retirement with 6% inflation, you need this target corpus.</p>
-<button class="w-full bg-tertiary-container text-on-tertiary-container font-bold py-3 rounded-lg shadow-lg">Get Detailed Plan</button>
-</div>
-</div>
-</div>
-<!-- Abstract BG Shape -->
-<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-</div>
-<!-- 5. SWP Calculator -->
-<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
-<h2 class="font-headline text-xl font-bold text-primary">SWP Calculator</h2>
-</div>
-<div class="space-y-4">
-<div class="group">
-<p class="text-xs text-on-surface-variant font-medium mb-1">Total Investment</p>
-<input class="w-full border-0 border-b border-outline-variant/30 focus:border-secondary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="50,00,000" type="number"/>
-</div>
-<div class="group">
-<p class="text-xs text-on-surface-variant font-medium mb-1">Monthly Withdrawal</p>
-<input class="w-full border-0 border-b border-outline-variant/30 focus:border-secondary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="30,000" type="number"/>
-</div>
-<div class="mt-8">
-<div class="flex justify-between items-end">
-<div>
-<p class="text-xs font-bold text-on-surface-variant uppercase">Remaining Balance</p>
-<p class="text-3xl font-headline font-bold text-primary mt-1">₹62.4 Lac</p>
-</div>
-<span class="text-secondary text-sm font-bold">10 Yrs period</span>
-</div>
-</div>
-</div>
-</div>
-<!-- 6. Child Education Planner -->
-<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10 flex flex-col">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">school</span>
-<h2 class="font-headline text-xl font-bold text-primary">Education Planner</h2>
-</div>
-<div class="space-y-6 flex-1">
-<div class="space-y-1">
-<p class="text-xs text-on-surface-variant font-medium">Child's Current Age</p>
-<div class="flex gap-2">
-<button class="flex-1 py-2 rounded-lg bg-surface-container-low text-primary font-bold border border-outline-variant/20 hover:bg-secondary hover:text-white transition-all">Under 5</button>
-<button class="flex-1 py-2 rounded-lg bg-surface-container-low text-primary font-bold border border-outline-variant/20 hover:bg-secondary hover:text-white transition-all">5-10</button>
-</div>
-</div>
-<div class="group">
-<p class="text-xs text-on-surface-variant font-medium mb-1">Current Cost of Higher Ed</p>
-<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="25,00,000" type="number"/>
-</div>
-</div>
-<div class="mt-6 pt-6 border-t border-surface-container-high">
-<p class="text-xs font-bold text-on-surface-variant mb-1">SIP Required Monthly</p>
-<p class="text-3xl font-headline font-bold text-secondary">₹14,500</p>
-</div>
-</div>
-<!-- 7. EMI Calculator -->
-<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-error text-2xl" style="font-variation-settings: 'FILL' 1;">home_mini</span>
-<h2 class="font-headline text-xl font-bold text-primary">EMI Calculator</h2>
-</div>
-<div class="space-y-4">
-<div class="grid grid-cols-2 gap-4">
-<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold bg-transparent" placeholder="Loan: 50L" type="number"/>
-<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold bg-transparent" placeholder="Interest: 8.5%" type="number"/>
-</div>
-<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold bg-transparent" placeholder="Tenure: 20 Yrs" type="number"/>
-<div class="mt-10 p-6 bg-surface-bright rounded-xl flex items-center justify-between">
-<div>
-<p class="text-xs font-bold text-on-surface-variant mb-1">Monthly EMI</p>
-<p class="text-2xl font-headline font-black text-primary">₹43,391</p>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant/20 text-4xl">receipt_long</span>
-</div>
-</div>
-</div>
-<!-- 8. Insurance Need Calculator -->
-<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border border-outline-variant/10">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">security</span>
-<h2 class="font-headline text-xl font-bold text-primary">Insurance Need</h2>
-</div>
-<div class="space-y-4">
-<div class="group">
-<p class="text-xs text-on-surface-variant font-medium mb-1">Annual Income</p>
-<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="12,00,000" type="number"/>
-</div>
-<div class="group">
-<p class="text-xs text-on-surface-variant font-medium mb-1">Current Liabilities</p>
-<input class="w-full border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 py-2 font-bold text-lg bg-transparent" placeholder="20,00,000" type="number"/>
-</div>
-<div class="mt-8 bg-tertiary-container/10 p-5 rounded-lg border-l-4 border-tertiary">
-<p class="text-on-tertiary-container text-xs font-bold uppercase mb-1">Recommended Life Cover</p>
-<p class="text-3xl font-headline font-bold text-on-tertiary-container">₹2.4 Cr</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Call to Action -->
-<section class="mt-24 bg-surface-container-low rounded-3xl p-12 text-center relative overflow-hidden">
-<div class="relative z-10">
-<h2 class="font-headline text-3xl font-bold text-primary mb-6">Need a personalized financial strategy?</h2>
-<p class="text-on-surface-variant max-w-xl mx-auto mb-10 leading-relaxed">Our expert advisors combine technology with human insight to build a portfolio that stands the test of time.</p>
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl transition-all hover:-translate-y-1">Book a Consultation</button>
-<button class="bg-white text-primary border border-outline-variant/30 px-8 py-4 rounded-xl font-bold text-lg shadow-sm transition-all hover:bg-surface-bright">Download App</button>
-</div>
-</div>
-<!-- Decorative Grain/Texture Gradient simulated -->
-<div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(0,110,47,0.2),transparent_70%)]"></div>
-</section>
-</main>
-<!-- Footer Shell -->
-<footer class="bg-slate-50 border-t border-slate-200">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 py-16">
-<div class="md:col-span-1">
-<h3 class="text-lg font-bold text-slate-800 mb-6 font-headline">JustInvesting</h3>
-<p class="text-xs leading-relaxed text-slate-500 font-body">Premium Wealth Management solutions for the modern investor. Mutual fund distribution and insurance assistance services.</p>
-<div class="flex gap-4 mt-8">
-<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">social_leaderboard</span>
-<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">share</span>
-<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">mail</span>
-</div>
-</div>
-<div>
-<h4 class="font-headline text-sm font-bold text-primary mb-6">Products</h4>
-<ul class="space-y-4 text-xs text-slate-500">
-<li><a class="hover:text-secondary transition-colors" href="mutual-funds.html">Mutual Funds</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Tax Saving ELSS</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Retirement Funds</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Gold Investments</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-headline text-sm font-bold text-primary mb-6">Company</h4>
-<ul class="space-y-4 text-xs text-slate-500">
-<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Disclosure</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Grievance Redressal</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-headline text-sm font-bold text-primary mb-6">Newsletter</h4>
-<p class="text-xs text-slate-500 mb-4">Stay ahead with weekly financial insights.</p>
-<div class="flex">
-<input class="w-full bg-white border-outline-variant/20 rounded-l-lg text-xs p-3 focus:ring-primary focus:border-primary" placeholder="Email address" type="email"/>
-<button class="bg-primary text-white p-3 rounded-r-lg">
-<span class="material-symbols-outlined text-sm">send</span>
-</button>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 pb-12">
-<div class="bg-slate-200 h-[1px] w-full mb-8"></div>
-<p class="text-[10px] leading-relaxed text-slate-400 text-center uppercase tracking-widest">
-                © 2024 JustInvesting. All rights reserved. Mutual Fund ARN: 356088. Mutual fund investments are subject to market risks, read all scheme related documents carefully.
-            </p>
-</div>
-<div class="mt-6 text-xs leading-5 text-slate-500"><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-1">Insurance is the subject matter of solicitation.</p><p class="mt-1">Mutual fund distribution under ARN-356088.</p><p class="mt-1">Insurance assistance available through InsuranceDekho and Square Insurance.</p><p class="mt-1"><span class="font-semibold text-slate-700">Phone:</span> <a class="hover:text-emerald-600" href="tel:+918882332050">+91 8882332050</a></p><p class="mt-1"><span class="font-semibold text-slate-700">Address:</span> Beri Wala Bagh, Hari Nagar, New Delhi - 110064</p></div><div class="max-w-7xl mx-auto px-8 pb-8"><div class="mt-10 rounded-xl border border-emerald-100 bg-emerald-50/60 p-5 text-sm leading-6 text-slate-700"><p class="font-semibold text-slate-900 mb-2">Important Disclosures</p><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-2">Insurance is the subject matter of solicitation. Policy issuance, features, benefits, exclusions and claims are subject to the insurer’s terms and conditions.</p><p class="mt-2">Past performance is not indicative of future returns. Returns shown in calculators or illustrations are only estimates and do not guarantee future performance.</p><p class="mt-2">Mutual fund transactions and related assistance are offered under ARN-356088. Insurance products, where applicable, are facilitated through InsuranceDekho and Square Insurance subject to their respective policy terms and insurer approvals.</p></div></div></footer>
-</body></html>
+<body class="bg-surface text-on-surface font-body">
+  <nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+    <div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+      <a class="text-2xl font-bold tracking-tighter text-primary font-headline" href="index.html">JustInvesting</a>
+      <div class="hidden md:flex items-center space-x-8 font-headline font-semibold tracking-tight">
+        <a class="text-slate-600 hover:text-secondary transition-colors" href="index.html">Home</a>
+        <a class="text-slate-600 hover:text-secondary transition-colors" href="about.html">About</a>
+        <a class="text-slate-600 hover:text-secondary transition-colors" href="mutual-funds.html">Mutual Funds</a>
+        <a class="text-slate-600 hover:text-secondary transition-colors" href="insurance.html">Insurance</a>
+        <a class="text-secondary border-b-2 border-secondary pb-1" href="calculators.html">Calculators</a>
+        <a class="text-slate-600 hover:text-secondary transition-colors" href="blog.html">Blog</a>
+      </div>
+      <div class="flex items-center space-x-3">
+        <a class="hidden sm:inline-flex px-4 py-2 text-primary font-semibold hover:bg-surface-container-low rounded-lg transition-all" href="contact.html">Contact</a>
+        <a class="bg-gradient-to-br from-primary to-primary-container px-5 py-2.5 text-white font-semibold rounded-lg shadow-md transition-transform active:scale-95" href="telegram.html">Telegram</a>
+      </div>
+    </div>
+    <div class="bg-surface-container-highest h-[1px] w-full opacity-30"></div>
+  </nav>
+
+  <main class="pt-28 pb-28">
+    <section class="hero-grid relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(107,255,143,0.18),transparent_26%),radial-gradient(circle_at_left,rgba(3,22,50,0.08),transparent_32%)]"></div>
+      <div class="max-w-7xl mx-auto px-6 py-14 md:py-20 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <span class="inline-flex items-center gap-2 rounded-full bg-secondary-container/30 px-4 py-2 text-sm font-semibold text-on-secondary-container">
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">calculate</span>
+              Smart calculators that convert visitors into leads
+            </span>
+            <h1 class="mt-6 font-headline text-5xl md:text-6xl font-extrabold text-primary tracking-tight leading-[1.05]">Financial calculators that feel premium and sell for you.</h1>
+            <p class="mt-5 max-w-2xl text-lg text-on-surface-variant leading-relaxed">Use accurate planning tools for SIP, retirement, EMI, insurance and child education. Every result is built to move a visitor toward WhatsApp, callback and advisory action.</p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#calculator-grid" class="rounded-xl bg-primary px-7 py-4 text-white font-bold shadow-xl shadow-primary/10 hover:-translate-y-0.5 transition-all">Use Calculators</a>
+              <a href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20want%20help%20with%20my%20financial%20planning." class="rounded-xl bg-white px-7 py-4 text-primary font-bold border border-outline-variant/40 hover:bg-surface-container-lowest transition-all">Chat on WhatsApp</a>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-6 text-sm text-on-surface-variant">
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">done</span> Accurate formulas</div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">done</span> Better input UX</div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">done</span> Lead-ready CTAs</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-3xl bg-surface-container-lowest p-6 card-glow border border-outline-variant/10">
+              <p class="text-sm text-on-surface-variant">Most used</p>
+              <h3 class="mt-1 font-headline text-2xl font-bold text-primary">SIP Planner</h3>
+              <p class="mt-4 text-4xl font-headline font-extrabold text-secondary">₹10K</p>
+              <p class="mt-2 text-sm text-on-surface-variant">monthly SIP shown with readable returns, gains and action buttons</p>
+            </div>
+            <div class="rounded-3xl bg-primary p-6 card-glow text-white">
+              <p class="text-sm text-primary-fixed">Fast CTA</p>
+              <h3 class="mt-1 font-headline text-2xl font-bold">WhatsApp Funnel</h3>
+              <p class="mt-4 text-4xl font-headline font-extrabold">1 Tap</p>
+              <p class="mt-2 text-sm text-primary-fixed">send result summary directly into WhatsApp follow-up</p>
+            </div>
+            <div class="col-span-2 rounded-3xl bg-surface-container-low p-6 card-glow border border-outline-variant/10">
+              <div class="flex flex-wrap gap-3 mb-4">
+                <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">SIP</span>
+                <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">Lumpsum</span>
+                <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">Step-up</span>
+                <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">Retirement</span>
+                <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">EMI</span>
+                <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">Insurance</span>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed">This page is redesigned to improve trust, reduce friction, and make every result useful for a real sales conversation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 mt-10">
+      <div class="rounded-3xl bg-surface-container-low p-4 md:p-5 border border-outline-variant/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <p class="text-sm font-bold text-primary">How to use these calculators</p>
+          <p class="text-sm text-on-surface-variant mt-1">Enter realistic values, review the result, then use the CTA below each tool to get a tailored plan on WhatsApp or callback.</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="contact.html" class="rounded-xl bg-primary px-5 py-3 text-white font-semibold">Request Callback</a>
+          <a href="telegram.html" class="rounded-xl bg-white px-5 py-3 text-primary font-semibold border border-outline-variant/30">Open Telegram</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator-grid" class="max-w-7xl mx-auto px-6 mt-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+        <div class="calc-card xl:col-span-2 rounded-3xl bg-surface-container-lowest border border-outline-variant/10 p-7 md:p-8 card-glow transition-all">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary-container/25 text-secondary">
+                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">trending_up</span>
+              </div>
+              <h2 class="mt-4 font-headline text-3xl font-bold text-primary">SIP Calculator</h2>
+              <p class="mt-2 text-on-surface-variant">See how disciplined monthly investing can compound into long-term wealth.</p>
+            </div>
+            <span class="hidden md:inline-flex rounded-full bg-surface-container-low px-3 py-1 text-xs font-bold text-primary">Best for ads</span>
+          </div>
+          <div class="mt-8 grid md:grid-cols-[1.4fr,0.9fr] gap-8">
+            <div class="space-y-5">
+              <div>
+                <div class="flex items-center justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Monthly Investment</label><span id="sipMonthlyValue" class="text-sm font-bold text-primary"></span></div>
+                <input id="sipMonthly" type="range" min="1000" max="200000" step="1000" value="10000" class="w-full">
+              </div>
+              <div class="grid grid-cols-2 gap-5">
+                <div>
+                  <div class="flex items-center justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Expected Return</label><span id="sipRateValue" class="text-sm font-bold text-primary"></span></div>
+                  <input id="sipRate" type="range" min="1" max="20" step="0.5" value="12" class="w-full">
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Time Period</label><span id="sipYearsValue" class="text-sm font-bold text-primary"></span></div>
+                  <input id="sipYears" type="range" min="1" max="40" step="1" value="15" class="w-full">
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-3">
+                <button class="sip-preset rounded-xl bg-surface-container-low px-3 py-3 text-sm font-semibold text-primary border border-outline-variant/20" data-value="5000">₹5K</button>
+                <button class="sip-preset rounded-xl bg-surface-container-low px-3 py-3 text-sm font-semibold text-primary border border-outline-variant/20" data-value="10000">₹10K</button>
+                <button class="sip-preset rounded-xl bg-surface-container-low px-3 py-3 text-sm font-semibold text-primary border border-outline-variant/20" data-value="25000">₹25K</button>
+              </div>
+            </div>
+            <div class="rounded-3xl bg-surface-container-low p-6 flex flex-col justify-between">
+              <div>
+                <p class="text-sm text-on-surface-variant">Estimated future value</p>
+                <h3 id="sipFutureValue" class="mt-2 font-headline text-4xl font-extrabold text-primary"></h3>
+                <div class="mt-5 grid grid-cols-2 gap-4">
+                  <div><p class="text-xs text-on-surface-variant">Invested</p><p id="sipInvested" class="mt-1 text-lg font-bold text-primary"></p></div>
+                  <div><p class="text-xs text-on-surface-variant">Wealth gain</p><p id="sipGain" class="mt-1 text-lg font-bold text-secondary"></p></div>
+                </div>
+                <p class="mt-5 text-sm leading-6 text-on-surface-variant">A practical SIP can start small and scale later. Use this result as a planning estimate, not a guaranteed return.</p>
+              </div>
+              <div class="mt-6 space-y-3">
+                <a id="sipWhatsapp" href="#" class="block w-full rounded-xl bg-primary px-5 py-3.5 text-center text-white font-bold">Get Free Plan on WhatsApp</a>
+                <a href="contact.html" class="block w-full rounded-xl bg-white border border-outline-variant/30 px-5 py-3.5 text-center text-primary font-bold">Request Callback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-card rounded-3xl bg-surface-container-lowest border border-outline-variant/10 p-7 card-glow transition-all">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-tertiary-container/20 text-tertiary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">payments</span></div>
+          <h2 class="mt-4 font-headline text-2xl font-bold text-primary">Lumpsum Calculator</h2>
+          <p class="mt-2 text-sm text-on-surface-variant">Check how one-time investing can grow over time.</p>
+          <div class="mt-6 space-y-5">
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Investment Amount</label><span id="lumpsumAmountValue" class="text-sm font-bold text-primary"></span></div><input id="lumpsumAmount" type="range" min="10000" max="10000000" step="10000" value="100000" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Expected Return</label><span id="lumpsumRateValue" class="text-sm font-bold text-primary"></span></div><input id="lumpsumRate" type="range" min="1" max="20" step="0.5" value="12" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Time Period</label><span id="lumpsumYearsValue" class="text-sm font-bold text-primary"></span></div><input id="lumpsumYears" type="range" min="1" max="30" step="1" value="5" class="w-full"></div>
+          </div>
+          <div class="mt-6 rounded-2xl bg-surface-container-low p-5">
+            <p class="text-xs font-bold uppercase text-on-surface-variant">Projected corpus</p>
+            <p id="lumpsumFutureValue" class="mt-2 font-headline text-4xl font-extrabold text-primary"></p>
+            <p id="lumpsumGain" class="mt-2 text-sm font-semibold text-secondary"></p>
+          </div>
+          <div class="mt-5 flex gap-3">
+            <a id="lumpsumWhatsapp" href="#" class="flex-1 rounded-xl bg-primary px-4 py-3 text-center text-white font-bold">WhatsApp</a>
+            <a href="contact.html" class="flex-1 rounded-xl bg-surface-container-low px-4 py-3 text-center text-primary font-bold">Callback</a>
+          </div>
+        </div>
+
+        <div class="calc-card rounded-3xl bg-surface-container-lowest border border-outline-variant/10 p-7 card-glow transition-all">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary-container/25 text-secondary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">show_chart</span></div>
+          <h2 class="mt-4 font-headline text-2xl font-bold text-primary">Step-up SIP</h2>
+          <p class="mt-2 text-sm text-on-surface-variant">Perfect for people whose income should rise over time.</p>
+          <div class="mt-6 space-y-5">
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Initial SIP</label><span id="stepSipMonthlyValue" class="text-sm font-bold text-primary"></span></div><input id="stepSipMonthly" type="range" min="1000" max="100000" step="1000" value="10000" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Annual Step-up</label><span id="stepSipStepValue" class="text-sm font-bold text-primary"></span></div><input id="stepSipStep" type="range" min="0" max="25" step="1" value="10" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Expected Return</label><span id="stepSipRateValue" class="text-sm font-bold text-primary"></span></div><input id="stepSipRate" type="range" min="1" max="20" step="0.5" value="12" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Duration</label><span id="stepSipYearsValue" class="text-sm font-bold text-primary"></span></div><input id="stepSipYears" type="range" min="1" max="35" step="1" value="15" class="w-full"></div>
+          </div>
+          <div class="mt-6 rounded-2xl bg-secondary-container/10 p-5">
+            <p class="text-xs font-bold uppercase text-on-secondary-container">Future value</p>
+            <p id="stepSipFutureValue" class="mt-2 font-headline text-4xl font-extrabold text-secondary"></p>
+            <p id="stepSipInvested" class="mt-2 text-sm text-on-surface-variant"></p>
+          </div>
+          <a id="stepSipWhatsapp" href="#" class="mt-5 block rounded-xl bg-primary px-5 py-3 text-center text-white font-bold">Get Step-up SIP Plan</a>
+        </div>
+
+        <div class="calc-card xl:col-span-2 rounded-3xl bg-primary text-white p-7 md:p-8 card-glow transition-all overflow-hidden relative">
+          <div class="absolute -top-12 -right-10 h-48 w-48 rounded-full bg-secondary/15 blur-3xl"></div>
+          <div class="relative z-10 grid md:grid-cols-[1.3fr,0.9fr] gap-8 items-center">
+            <div>
+              <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-tertiary-fixed"><span class="material-symbols-outlined">beach_access</span></div>
+              <h2 class="mt-4 font-headline text-3xl font-bold">Retirement Planner</h2>
+              <p class="mt-2 text-primary-fixed max-w-2xl">Estimate the retirement corpus you may need, based on current monthly expenses and inflation.</p>
+              <div class="mt-8 grid sm:grid-cols-2 gap-5">
+                <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-primary-fixed">Current Age</label><span id="retAgeValue" class="text-sm font-bold text-white"></span></div><input id="retAge" type="range" min="21" max="59" step="1" value="30" class="w-full"></div>
+                <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-primary-fixed">Retirement Age</label><span id="retRetireAgeValue" class="text-sm font-bold text-white"></span></div><input id="retRetireAge" type="range" min="40" max="75" step="1" value="60" class="w-full"></div>
+                <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-primary-fixed">Monthly Expense Today</label><span id="retExpenseValue" class="text-sm font-bold text-white"></span></div><input id="retExpense" type="range" min="10000" max="500000" step="5000" value="50000" class="w-full"></div>
+                <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-primary-fixed">Inflation</label><span id="retInflationValue" class="text-sm font-bold text-white"></span></div><input id="retInflation" type="range" min="1" max="12" step="0.5" value="6" class="w-full"></div>
+              </div>
+            </div>
+            <div class="rounded-3xl bg-white/10 backdrop-blur-sm p-6 border border-white/10">
+              <p class="text-sm text-primary-fixed">Estimated annual expense at retirement</p>
+              <h3 id="retFutureExpense" class="mt-2 font-headline text-3xl font-extrabold"></h3>
+              <div class="mt-6 border-t border-white/10 pt-5">
+                <p class="text-sm text-primary-fixed">Indicative corpus needed</p>
+                <p id="retCorpus" class="mt-2 font-headline text-4xl font-extrabold text-tertiary-fixed"></p>
+                <p class="mt-3 text-xs text-primary-fixed leading-5">Indicative corpus shown as 20x annual expense. Actual requirement depends on returns, inflation, retirement lifestyle, medical costs and other goals.</p>
+              </div>
+              <div class="mt-6 space-y-3">
+                <a id="retWhatsapp" href="#" class="block rounded-xl bg-tertiary-container px-5 py-3.5 text-center font-bold text-on-tertiary-container">Get Detailed Retirement Plan</a>
+                <a href="contact.html" class="block rounded-xl border border-white/15 px-5 py-3.5 text-center font-bold text-white">Talk to Advisor</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-card rounded-3xl bg-surface-container-lowest border border-outline-variant/10 p-7 card-glow transition-all">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary-container/25 text-secondary"><span class="material-symbols-outlined">account_balance</span></div>
+          <h2 class="mt-4 font-headline text-2xl font-bold text-primary">SWP Calculator</h2>
+          <p class="mt-2 text-sm text-on-surface-variant">See how long your corpus may support regular withdrawals.</p>
+          <div class="mt-6 space-y-5">
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Current Corpus</label><span id="swpCorpusValue" class="text-sm font-bold text-primary"></span></div><input id="swpCorpus" type="range" min="100000" max="50000000" step="100000" value="5000000" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Monthly Withdrawal</label><span id="swpWithdrawalValue" class="text-sm font-bold text-primary"></span></div><input id="swpWithdrawal" type="range" min="5000" max="300000" step="5000" value="30000" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Expected Return</label><span id="swpRateValue" class="text-sm font-bold text-primary"></span></div><input id="swpRate" type="range" min="1" max="15" step="0.5" value="8" class="w-full"></div>
+          </div>
+          <div class="mt-6 rounded-2xl bg-surface-container-low p-5">
+            <p class="text-xs font-bold uppercase text-on-surface-variant">Indicative sustainability</p>
+            <p id="swpYearsResult" class="mt-2 font-headline text-4xl font-extrabold text-primary"></p>
+            <p id="swpBalanceResult" class="mt-2 text-sm text-on-surface-variant"></p>
+          </div>
+          <a id="swpWhatsapp" href="#" class="mt-5 block rounded-xl bg-primary px-5 py-3 text-center text-white font-bold">Discuss SWP Strategy</a>
+        </div>
+
+        <div class="calc-card rounded-3xl bg-surface-container-lowest border border-outline-variant/10 p-7 card-glow transition-all">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"><span class="material-symbols-outlined">school</span></div>
+          <h2 class="mt-4 font-headline text-2xl font-bold text-primary">Child Education Planner</h2>
+          <p class="mt-2 text-sm text-on-surface-variant">Estimate the monthly SIP needed for higher education.</p>
+          <div class="mt-6 space-y-5">
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Years Left</label><span id="eduYearsValue" class="text-sm font-bold text-primary"></span></div><input id="eduYears" type="range" min="1" max="20" step="1" value="10" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Current Cost of Education</label><span id="eduCostValue" class="text-sm font-bold text-primary"></span></div><input id="eduCost" type="range" min="500000" max="10000000" step="50000" value="2500000" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Education Inflation</label><span id="eduInflationValue" class="text-sm font-bold text-primary"></span></div><input id="eduInflation" type="range" min="1" max="15" step="0.5" value="8" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Expected Return</label><span id="eduReturnValue" class="text-sm font-bold text-primary"></span></div><input id="eduReturn" type="range" min="1" max="18" step="0.5" value="12" class="w-full"></div>
+          </div>
+          <div class="mt-6 rounded-2xl bg-secondary-container/10 p-5">
+            <p class="text-xs font-bold uppercase text-on-secondary-container">Required monthly SIP</p>
+            <p id="eduSipRequired" class="mt-2 font-headline text-4xl font-extrabold text-secondary"></p>
+            <p id="eduFutureCost" class="mt-2 text-sm text-on-surface-variant"></p>
+          </div>
+          <a id="eduWhatsapp" href="#" class="mt-5 block rounded-xl bg-primary px-5 py-3 text-center text-white font-bold">Plan Education Goal</a>
+        </div>
+
+        <div class="calc-card rounded-3xl bg-surface-container-lowest border border-outline-variant/10 p-7 card-glow transition-all">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-error-container/70 text-error"><span class="material-symbols-outlined">home</span></div>
+          <h2 class="mt-4 font-headline text-2xl font-bold text-primary">EMI Calculator</h2>
+          <p class="mt-2 text-sm text-on-surface-variant">Estimate EMI before you commit to a home, car or personal loan.</p>
+          <div class="mt-6 space-y-5">
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Loan Amount</label><span id="emiLoanValue" class="text-sm font-bold text-primary"></span></div><input id="emiLoan" type="range" min="100000" max="50000000" step="100000" value="5000000" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Interest Rate</label><span id="emiRateValue" class="text-sm font-bold text-primary"></span></div><input id="emiRate" type="range" min="1" max="20" step="0.1" value="8.5" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Tenure</label><span id="emiYearsValue" class="text-sm font-bold text-primary"></span></div><input id="emiYears" type="range" min="1" max="30" step="1" value="20" class="w-full"></div>
+          </div>
+          <div class="mt-6 rounded-2xl bg-surface-container-low p-5">
+            <p class="text-xs font-bold uppercase text-on-surface-variant">Monthly EMI</p>
+            <p id="emiResult" class="mt-2 font-headline text-4xl font-extrabold text-primary"></p>
+            <p id="emiTotalOutgo" class="mt-2 text-sm text-on-surface-variant"></p>
+          </div>
+          <a id="emiWhatsapp" href="#" class="mt-5 block rounded-xl bg-primary px-5 py-3 text-center text-white font-bold">Get Loan Planning Help</a>
+        </div>
+
+        <div class="calc-card rounded-3xl bg-surface-container-lowest border border-outline-variant/10 p-7 card-glow transition-all">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-tertiary-container/25 text-tertiary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">verified_user</span></div>
+          <h2 class="mt-4 font-headline text-2xl font-bold text-primary">Insurance Need Calculator</h2>
+          <p class="mt-2 text-sm text-on-surface-variant">A fast estimate to understand how much life cover may be required.</p>
+          <div class="mt-6 space-y-5">
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Annual Income</label><span id="insIncomeValue" class="text-sm font-bold text-primary"></span></div><input id="insIncome" type="range" min="300000" max="10000000" step="100000" value="1200000" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Current Liabilities</label><span id="insLiabilityValue" class="text-sm font-bold text-primary"></span></div><input id="insLiability" type="range" min="0" max="20000000" step="100000" value="2000000" class="w-full"></div>
+            <div><div class="flex justify-between mb-2"><label class="text-sm font-semibold text-on-surface-variant">Existing Life Cover</label><span id="insExistingValue" class="text-sm font-bold text-primary"></span></div><input id="insExisting" type="range" min="0" max="20000000" step="100000" value="0" class="w-full"></div>
+          </div>
+          <div class="mt-6 rounded-2xl bg-tertiary-container/10 border-l-4 border-tertiary p-5">
+            <p class="text-xs font-bold uppercase text-on-tertiary-container">Suggested cover</p>
+            <p id="insRecommended" class="mt-2 font-headline text-4xl font-extrabold text-on-tertiary-container"></p>
+            <p id="insBreakup" class="mt-2 text-sm text-on-surface-variant"></p>
+          </div>
+          <div class="mt-5 grid grid-cols-2 gap-3">
+            <a id="insWhatsapp" href="#" class="rounded-xl bg-primary px-4 py-3 text-center text-white font-bold">Compare Term Plans</a>
+            <a href="insurance.html" class="rounded-xl bg-surface-container-low px-4 py-3 text-center text-primary font-bold">View Insurance</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 mt-16">
+      <div class="rounded-3xl bg-surface-container-low p-8 md:p-10 border border-outline-variant/10">
+        <div class="grid lg:grid-cols-[1.15fr,0.85fr] gap-8 items-center">
+          <div>
+            <h2 class="font-headline text-3xl font-bold text-primary">Turn calculator results into action.</h2>
+            <p class="mt-3 text-on-surface-variant leading-7 max-w-2xl">Most websites stop after showing a number. We do not. Use the WhatsApp or callback buttons and Rahul can convert the result into a practical mutual fund, insurance or financial-planning recommendation.</p>
+            <div class="mt-6 flex flex-wrap gap-4">
+              <a href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20used%20your%20calculator%20and%20want%20a%20personalised%20plan." class="rounded-xl bg-primary px-6 py-4 text-white font-bold">Chat on WhatsApp</a>
+              <a href="contact.html" class="rounded-xl bg-white px-6 py-4 text-primary font-bold border border-outline-variant/30">Request Callback</a>
+            </div>
+          </div>
+          <div class="rounded-3xl bg-white p-6 md:p-7 shadow-soft border border-outline-variant/10">
+            <p class="text-sm font-bold text-primary">Important Disclosures</p>
+            <div class="mt-4 space-y-3 text-sm leading-6 text-on-surface-variant">
+              <p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p>
+              <p>Insurance is the subject matter of solicitation. Policy issuance, benefits, exclusions and claims remain subject to insurer terms and approvals.</p>
+              <p>All calculator values are illustrations only. These are not guaranteed returns, quotes, or underwriting decisions.</p>
+              <p>Mutual fund distribution under ARN-356088. Insurance assistance available through InsuranceDekho and Square Insurance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20want%20help%20with%20financial%20planning." class="fixed bottom-24 right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-white shadow-2xl hover:scale-105 transition-transform" aria-label="Chat on WhatsApp">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">forum</span>
+  </a>
+
+  <div class="fixed inset-x-0 bottom-0 z-50 border-t border-outline-variant/20 bg-white/95 backdrop-blur md:hidden">
+    <div class="grid grid-cols-2 gap-3 p-3">
+      <a href="contact.html" class="rounded-xl bg-primary px-4 py-3 text-center text-sm font-bold text-white">Request Callback</a>
+      <a href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20want%20help%20with%20my%20planning." class="rounded-xl bg-secondary px-4 py-3 text-center text-sm font-bold text-white">WhatsApp</a>
+    </div>
+  </div>
+
+  <footer class="bg-slate-50 border-t border-slate-200 mt-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 py-16">
+      <div class="md:col-span-1">
+        <h3 class="text-lg font-bold text-slate-800 mb-6 font-headline">JustInvesting</h3>
+        <p class="text-xs leading-relaxed text-slate-500">Premium wealth management solutions for the modern investor. Mutual fund distribution and insurance assistance services.</p>
+      </div>
+      <div>
+        <h4 class="font-headline text-sm font-bold text-primary mb-6">Products</h4>
+        <ul class="space-y-4 text-xs text-slate-500">
+          <li><a class="hover:text-secondary transition-colors" href="mutual-funds.html">Mutual Funds</a></li>
+          <li><a class="hover:text-secondary transition-colors" href="insurance.html">Insurance</a></li>
+          <li><a class="hover:text-secondary transition-colors" href="calculators.html">Calculators</a></li>
+          <li><a class="hover:text-secondary transition-colors" href="telegram.html">Telegram Bot</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-headline text-sm font-bold text-primary mb-6">Company</h4>
+        <ul class="space-y-4 text-xs text-slate-500">
+          <li><a class="hover:text-secondary transition-colors" href="about.html">About</a></li>
+          <li><a class="hover:text-secondary transition-colors" href="contact.html">Contact</a></li>
+          <li><a class="hover:text-secondary transition-colors" href="blog.html">Blog</a></li>
+          <li><a class="hover:text-secondary transition-colors" href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-headline text-sm font-bold text-primary mb-6">Reach Us</h4>
+        <div class="space-y-3 text-xs text-slate-500 leading-6">
+          <p><span class="font-semibold text-slate-700">Phone:</span> <a href="tel:+918882332050" class="hover:text-secondary">+91 8882332050</a></p>
+          <p><span class="font-semibold text-slate-700">Address:</span> Beri Wala Bagh, Hari Nagar, New Delhi - 110064</p>
+          <p><span class="font-semibold text-slate-700">ARN:</span> 356088</p>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-8 pb-8">
+      <div class="bg-slate-200 h-[1px] w-full mb-6"></div>
+      <p class="text-[10px] leading-relaxed text-slate-400 text-center uppercase tracking-widest">© 2024 JustInvesting. Mutual fund investments are subject to market risks. Insurance is the subject matter of solicitation.</p>
+    </div>
+  </footer>
+
+  <script>
+    const fmtCurrency = (n) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(Math.round(Number(n) || 0));
+    const fmtNumber = (n) => new Intl.NumberFormat('en-IN', { maximumFractionDigits: 1 }).format(Number(n) || 0);
+    const wa = (text) => `https://wa.me/918882332050?text=${encodeURIComponent(text)}`;
+
+    function sipFutureValue(monthly, annualRate, years) {
+      const r = annualRate / 12 / 100;
+      const n = years * 12;
+      if (r === 0) return monthly * n;
+      return monthly * (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+    }
+
+    function lumpsumFutureValue(principal, annualRate, years) {
+      return principal * Math.pow(1 + annualRate / 100, years);
+    }
+
+    function emiValue(principal, annualRate, years) {
+      const r = annualRate / 12 / 100;
+      const n = years * 12;
+      if (r === 0) return principal / n;
+      return principal * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    }
+
+    function setText(id, value) { document.getElementById(id).textContent = value; }
+    function setHref(id, value) { document.getElementById(id).setAttribute('href', value); }
+
+    function updateSip() {
+      const monthly = +document.getElementById('sipMonthly').value;
+      const rate = +document.getElementById('sipRate').value;
+      const years = +document.getElementById('sipYears').value;
+      const future = sipFutureValue(monthly, rate, years);
+      const invested = monthly * years * 12;
+      setText('sipMonthlyValue', fmtCurrency(monthly));
+      setText('sipRateValue', `${fmtNumber(rate)}%`);
+      setText('sipYearsValue', `${years} yrs`);
+      setText('sipFutureValue', fmtCurrency(future));
+      setText('sipInvested', fmtCurrency(invested));
+      setText('sipGain', fmtCurrency(future - invested));
+      setHref('sipWhatsapp', wa(`Hi JustInvesting, I used the SIP calculator. Monthly SIP: ${fmtCurrency(monthly)}, return: ${fmtNumber(rate)}%, duration: ${years} years, future value: ${fmtCurrency(future)}. Please suggest a suitable mutual fund plan.`));
+    }
+
+    function updateLumpsum() {
+      const amount = +document.getElementById('lumpsumAmount').value;
+      const rate = +document.getElementById('lumpsumRate').value;
+      const years = +document.getElementById('lumpsumYears').value;
+      const future = lumpsumFutureValue(amount, rate, years);
+      setText('lumpsumAmountValue', fmtCurrency(amount));
+      setText('lumpsumRateValue', `${fmtNumber(rate)}%`);
+      setText('lumpsumYearsValue', `${years} yrs`);
+      setText('lumpsumFutureValue', fmtCurrency(future));
+      setText('lumpsumGain', `Estimated gain: ${fmtCurrency(future - amount)}`);
+      setHref('lumpsumWhatsapp', wa(`Hi JustInvesting, I used the Lumpsum calculator. Investment: ${fmtCurrency(amount)}, return: ${fmtNumber(rate)}%, duration: ${years} years, projected corpus: ${fmtCurrency(future)}. Please guide me.`));
+    }
+
+    function updateStepSip() {
+      const monthly = +document.getElementById('stepSipMonthly').value;
+      const stepUp = +document.getElementById('stepSipStep').value;
+      const rate = +document.getElementById('stepSipRate').value;
+      const years = +document.getElementById('stepSipYears').value;
+      let total = 0;
+      let invested = 0;
+      let sip = monthly;
+      for (let y = 1; y <= years; y++) {
+        total += sipFutureValue(sip, rate, years - y + 1);
+        invested += sip * 12;
+        sip *= (1 + stepUp / 100);
+      }
+      setText('stepSipMonthlyValue', fmtCurrency(monthly));
+      setText('stepSipStepValue', `${stepUp}%`);
+      setText('stepSipRateValue', `${fmtNumber(rate)}%`);
+      setText('stepSipYearsValue', `${years} yrs`);
+      setText('stepSipFutureValue', fmtCurrency(total));
+      setText('stepSipInvested', `Total invested: ${fmtCurrency(invested)}`);
+      setHref('stepSipWhatsapp', wa(`Hi JustInvesting, I used the Step-up SIP calculator. Initial SIP: ${fmtCurrency(monthly)}, annual step-up: ${stepUp}%, return: ${fmtNumber(rate)}%, duration: ${years} years, future value: ${fmtCurrency(total)}. Please help me build a step-up SIP plan.`));
+    }
+
+    function updateRetirement() {
+      const age = +document.getElementById('retAge').value;
+      const retireAge = +document.getElementById('retRetireAge').value;
+      const expense = +document.getElementById('retExpense').value;
+      const inflation = +document.getElementById('retInflation').value;
+      const years = Math.max(retireAge - age, 1);
+      const futureMonthly = expense * Math.pow(1 + inflation / 100, years);
+      const futureAnnual = futureMonthly * 12;
+      const corpus = futureAnnual * 20;
+      setText('retAgeValue', `${age} yrs`);
+      setText('retRetireAgeValue', `${retireAge} yrs`);
+      setText('retExpenseValue', fmtCurrency(expense));
+      setText('retInflationValue', `${fmtNumber(inflation)}%`);
+      setText('retFutureExpense', fmtCurrency(futureAnnual) + ' / year');
+      setText('retCorpus', fmtCurrency(corpus));
+      setHref('retWhatsapp', wa(`Hi JustInvesting, I used the retirement planner. Current age: ${age}, retirement age: ${retireAge}, monthly expense today: ${fmtCurrency(expense)}, inflation: ${fmtNumber(inflation)}%, estimated annual retirement expense: ${fmtCurrency(futureAnnual)}, corpus estimate: ${fmtCurrency(corpus)}. Please help me plan retirement.`));
+    }
+
+    function updateSwp() {
+      const corpus = +document.getElementById('swpCorpus').value;
+      const withdrawal = +document.getElementById('swpWithdrawal').value;
+      const rate = +document.getElementById('swpRate').value;
+      let balance = corpus;
+      let months = 0;
+      const monthlyRate = rate / 12 / 100;
+      while (balance > 0 && months < 1200) {
+        balance = balance * (1 + monthlyRate) - withdrawal;
+        months++;
+      }
+      const years = (months / 12);
+      setText('swpCorpusValue', fmtCurrency(corpus));
+      setText('swpWithdrawalValue', fmtCurrency(withdrawal));
+      setText('swpRateValue', `${fmtNumber(rate)}%`);
+      setText('swpYearsResult', `${fmtNumber(years)} years`);
+      setText('swpBalanceResult', months >= 1200 ? 'Corpus may continue beyond 100 years with these inputs.' : `Indicative closing balance: ${fmtCurrency(Math.max(balance, 0))}`);
+      setHref('swpWhatsapp', wa(`Hi JustInvesting, I used the SWP calculator. Corpus: ${fmtCurrency(corpus)}, monthly withdrawal: ${fmtCurrency(withdrawal)}, expected return: ${fmtNumber(rate)}%, sustainability estimate: ${fmtNumber(years)} years. Please suggest an SWP strategy.`));
+    }
+
+    function updateEducation() {
+      const years = +document.getElementById('eduYears').value;
+      const cost = +document.getElementById('eduCost').value;
+      const inflation = +document.getElementById('eduInflation').value;
+      const ret = +document.getElementById('eduReturn').value;
+      const futureCost = cost * Math.pow(1 + inflation / 100, years);
+      const sip = sipFutureValue(1, ret, years);
+      const requiredSip = futureCost / (sip || 1);
+      setText('eduYearsValue', `${years} yrs`);
+      setText('eduCostValue', fmtCurrency(cost));
+      setText('eduInflationValue', `${fmtNumber(inflation)}%`);
+      setText('eduReturnValue', `${fmtNumber(ret)}%`);
+      setText('eduSipRequired', fmtCurrency(requiredSip));
+      setText('eduFutureCost', `Estimated future cost: ${fmtCurrency(futureCost)}`);
+      setHref('eduWhatsapp', wa(`Hi JustInvesting, I used the child education planner. Years left: ${years}, current education cost: ${fmtCurrency(cost)}, education inflation: ${fmtNumber(inflation)}%, expected return: ${fmtNumber(ret)}%, estimated future cost: ${fmtCurrency(futureCost)}, SIP needed: ${fmtCurrency(requiredSip)}. Please guide me.`));
+    }
+
+    function updateEmi() {
+      const loan = +document.getElementById('emiLoan').value;
+      const rate = +document.getElementById('emiRate').value;
+      const years = +document.getElementById('emiYears').value;
+      const emi = emiValue(loan, rate, years);
+      const total = emi * years * 12;
+      setText('emiLoanValue', fmtCurrency(loan));
+      setText('emiRateValue', `${fmtNumber(rate)}%`);
+      setText('emiYearsValue', `${years} yrs`);
+      setText('emiResult', fmtCurrency(emi));
+      setText('emiTotalOutgo', `Total outgo: ${fmtCurrency(total)} | Interest: ${fmtCurrency(total - loan)}`);
+      setHref('emiWhatsapp', wa(`Hi JustInvesting, I used the EMI calculator. Loan amount: ${fmtCurrency(loan)}, interest: ${fmtNumber(rate)}%, tenure: ${years} years, EMI: ${fmtCurrency(emi)}. Please help me plan this loan.`));
+    }
+
+    function updateInsuranceNeed() {
+      const income = +document.getElementById('insIncome').value;
+      const liabilities = +document.getElementById('insLiability').value;
+      const existing = +document.getElementById('insExisting').value;
+      const recommended = Math.max((income * 15) + liabilities - existing, 0);
+      setText('insIncomeValue', fmtCurrency(income));
+      setText('insLiabilityValue', fmtCurrency(liabilities));
+      setText('insExistingValue', fmtCurrency(existing));
+      setText('insRecommended', fmtCurrency(recommended));
+      setText('insBreakup', `Formula used: 15x annual income + liabilities - existing cover.`);
+      setHref('insWhatsapp', wa(`Hi JustInvesting, I used the Insurance Need calculator. Annual income: ${fmtCurrency(income)}, liabilities: ${fmtCurrency(liabilities)}, existing cover: ${fmtCurrency(existing)}, suggested life cover: ${fmtCurrency(recommended)}. Please compare term insurance plans for me.`));
+    }
+
+    const bindings = {
+      sipMonthly: updateSip, sipRate: updateSip, sipYears: updateSip,
+      lumpsumAmount: updateLumpsum, lumpsumRate: updateLumpsum, lumpsumYears: updateLumpsum,
+      stepSipMonthly: updateStepSip, stepSipStep: updateStepSip, stepSipRate: updateStepSip, stepSipYears: updateStepSip,
+      retAge: updateRetirement, retRetireAge: updateRetirement, retExpense: updateRetirement, retInflation: updateRetirement,
+      swpCorpus: updateSwp, swpWithdrawal: updateSwp, swpRate: updateSwp,
+      eduYears: updateEducation, eduCost: updateEducation, eduInflation: updateEducation, eduReturn: updateEducation,
+      emiLoan: updateEmi, emiRate: updateEmi, emiYears: updateEmi,
+      insIncome: updateInsuranceNeed, insLiability: updateInsuranceNeed, insExisting: updateInsuranceNeed
+    };
+
+    Object.keys(bindings).forEach(id => document.getElementById(id).addEventListener('input', bindings[id]));
+    document.querySelectorAll('.sip-preset').forEach(btn => btn.addEventListener('click', () => {
+      document.getElementById('sipMonthly').value = btn.dataset.value;
+      updateSip();
+    }));
+
+    updateSip(); updateLumpsum(); updateStepSip(); updateRetirement(); updateSwp(); updateEducation(); updateEmi(); updateInsuranceNeed();
+  </script>
+</body>
+</html>
