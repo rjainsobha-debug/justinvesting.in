@@ -1,290 +1,751 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JustInvesting | Mutual Funds, Insurance & Financial Planning</title>
-  <meta name="description" content="JustInvesting helps you with mutual funds, insurance planning, SIP guidance, calculators, and Telegram portfolio tracking." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    h1,h2,h3,h4,.font-headline { font-family: 'Manrope', sans-serif; }
-    html { scroll-behavior: smooth; }
-    .hero-bg {
-      background: radial-gradient(circle at top right, rgba(34,197,94,.18), transparent 28%),
-                  radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 24%),
-                  linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-    }
-    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,.85); }
-  </style>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JustInvesting | Premium Wealth Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#4f3d00",
+                        "secondary": "#006e2f",
+                        "secondary-container": "#6bff8f",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed": "#241a00",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#8293b5",
+                        "on-surface": "#191c1e",
+                        "background": "#f7f9fb",
+                        "secondary-fixed-dim": "#4ae176",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "secondary-fixed": "#6bff8f",
+                        "primary": "#031632",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-fixed": "#081b38",
+                        "on-error": "#ffffff",
+                        "tertiary": "#735c00",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1a2b48",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "outline": "#75777e",
+                        "tertiary-fixed": "#ffe088",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#44474d",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary-fixed-variant": "#374765",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#cca730",
+                        "primary-fixed": "#d7e2ff",
+                        "inverse-primary": "#b6c7eb",
+                        "surface-container": "#eceef0",
+                        "on-background": "#191c1e",
+                        "on-secondary-container": "#007432",
+                        "surface-tint": "#4e5f7e",
+                        "outline-variant": "#c5c6ce",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#002109",
+                        "on-secondary-fixed-variant": "#005321",
+                        "surface-container-high": "#e6e8ea",
+                        "error-container": "#ffdad6"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; color: #191c1e; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .premium-gradient { background: linear-gradient(135deg, #031632 0%, #1a2b48 100%); }
+        .floating-cta{box-shadow:0 20px 40px rgba(3,22,50,.15);}
+        .service-tab-btn,.health-chip{transition:all .2s ease;}
+        .service-tab-btn:hover,.health-chip:hover{transform:translateY(-1px);}
+
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+<a class="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white font-headline" href="index.html">JustInvesting</a>
+<div class="hidden md:flex items-center space-x-8 font-headline font-semibold tracking-tight">
+<a class="text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 pb-1" href="index.html">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="about.html">About</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="mutual-funds.html">Mutual Funds</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="insurance.html">Insurance</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="calculators.html">Calculators</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" href="blog.html">Blog</a>
+</div>
+<div class="flex items-center space-x-4">
+<a class="hidden md:block text-emerald-700 dark:text-emerald-500 font-headline font-semibold" href="telegram.html">Telegram</a>
+<a class="bg-primary text-on-primary px-5 py-2 rounded-lg font-headline font-semibold scale-95 active:opacity-80 transition-transform" href="contact.html">Contact</a>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full"></div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-surface">
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center space-x-2 bg-secondary-container/20 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-on-secondary-container text-xs font-bold tracking-widest uppercase">Trusted by 50,000+ Investors</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold text-primary leading-[1.1] tracking-tighter">
+                        Smart Investing <br/><span class="text-secondary">Starts Here</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                        Mutual Funds, Insurance &amp; Financial Tools — All in One Place. Experience bespoke wealth management tailored for your financial future.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="premium-gradient text-on-primary px-8 py-4 rounded-xl font-headline font-bold text-lg shadow-xl shadow-primary/10 hover:shadow-primary/20 transition-all" href="contact.html">Start Investing</a>
+<a class="bg-surface-container-high text-primary px-8 py-4 rounded-xl font-headline font-bold text-lg hover:bg-surface-container-highest transition-all" href="mutual-funds.html">Explore Mutual Funds</a>
+</div>
+<div class="flex flex-wrap items-center gap-6 pt-6">
+<a class="flex items-center space-x-2 text-on-surface-variant hover:text-primary transition-colors font-medium" href="calculators.html">
+<span class="material-symbols-outlined">calculate</span>
+<span>Use Calculators</span>
+</a>
+<a class="flex items-center space-x-2 text-on-surface-variant hover:text-primary transition-colors font-medium" href="telegram.html">
+<span class="material-symbols-outlined">send</span>
+<span>Track Portfolio on Telegram</span>
+</a>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-20 -right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="relative bg-surface-container-lowest p-4 rounded-3xl shadow-2xl shadow-slate-200/50 transform lg:rotate-3">
+<img alt="Dashboard Preview" class="rounded-2xl w-full object-cover aspect-[4/3]" data-alt="Modern clean financial dashboard interface showing investment portfolio growth with green charts and high-end typography on a white tablet screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZEOl-UFhrWCCfgZGXkxPvqPZ4Gil_OA5MglO9OEU7IDg1cudephG2iSxW6iJD38iDSzHS0krlscyJvn_mHftrdrCVMl6twfyWDhfgxaLDnAlEpXgO084QCdaKx0fmB9FjjjSi9Em1h2JQbc0P_x48i2dGJInxmUHB_ZfmCRRvj0VRQ3kRbKYNToFcEhdRmgqczTGfZz_bxpTqJkzksJTNTvYRgTml8CpN4zmR4N4PmYIf9NLoZuF-ytNP6LF2iDRfR-1SkEPMGXI"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Services Bento Grid -->
+<section class="py-24 bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+<div>
+<span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-secondary shadow-sm">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">apps</span>
+                    Services that convert interest into action
+                </span>
+<h2 class="mt-5 text-3xl md:text-5xl font-headline font-extrabold tracking-tight text-primary">Interactive advice, not static brochure content.</h2>
+<p class="mt-4 max-w-3xl text-lg leading-8 text-on-surface-variant">Explore real product buckets, understand what fits your need, and move directly from interest to call, WhatsApp, calculator, or lead form without breaking the existing site flow.</p>
+</div>
+<div class="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+<a class="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg shadow-primary/10 transition hover:-translate-y-0.5" href="contact.html">
+<span class="material-symbols-outlined text-base">call</span>
+<span>Request Callback</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-bold text-primary shadow-sm transition hover:-translate-y-0.5" href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20want%20help%20with%20mutual%20funds%20or%20insurance.">
+<span class="material-symbols-outlined text-base">forum</span>
+<span>WhatsApp Now</span>
+</a>
+</div>
+</div>
 
-  <header class="sticky top-0 z-50 border-b border-slate-200 glass">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-4">
-        <a href="#home" class="text-2xl font-headline font-extrabold tracking-tight text-slate-900">JustInvesting</a>
-        <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
-          <a href="#home" class="hover:text-emerald-600">Home</a>
-          <a href="#services" class="hover:text-emerald-600">Services</a>
-          <a href="#calculators" class="hover:text-emerald-600">Calculators</a>
-          <a href="#telegram" class="hover:text-emerald-600">Telegram Bot</a>
-          <a href="#contact" class="hover:text-emerald-600">Contact</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <a href="https://t.me/Mfddelhibot" target="_blank" class="hidden sm:inline-flex rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">Telegram Bot</a>
-          <a href="#contact" class="inline-flex rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">Get Consultation</a>
-        </div>
-      </div>
-    </div>
-  </header>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Mutual Funds -->
+<div class="rounded-[2rem] border border-outline-variant/20 bg-white p-8 shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-xl">
+<div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+<div class="max-w-xl">
+<div class="flex items-center gap-4 mb-5">
+<div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary-container/30 text-secondary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-secondary">Mutual Funds</p>
+<h3 class="text-2xl md:text-3xl font-headline font-extrabold text-primary">Pick the right fund bucket before you pick a scheme.</h3>
+</div>
+</div>
+<p class="text-base leading-7 text-on-surface-variant">Designed for investors who need clarity on asset class, holding period, risk, and goal-fit before starting SIP or lumpsum investing.</p>
+</div>
+<div class="flex flex-wrap gap-2 lg:max-w-[220px]">
+<button class="service-tab-btn rounded-full bg-primary px-4 py-2 text-xs font-bold text-white" data-target="mf-equity">Equity</button>
+<button class="service-tab-btn rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-target="mf-debt">Debt</button>
+<button class="service-tab-btn rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-target="mf-hybrid">Hybrid</button>
+<button class="service-tab-btn rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-target="mf-tax">ELSS</button>
+<button class="service-tab-btn rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-target="mf-index">Index</button>
+</div>
+</div>
+<div class="mt-8 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+<div class="rounded-3xl bg-surface-container-low p-6">
+<div class="service-panel" id="mf-equity">
+<h4 class="text-xl font-headline font-bold text-primary">Equity Funds</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">For long-term growth seekers comfortable with market volatility. Ideal for wealth creation, retirement, child education, and aggressive long-horizon goals.</p>
+<div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-primary">
+<span class="rounded-full bg-white px-3 py-2">Large Cap</span>
+<span class="rounded-full bg-white px-3 py-2">Mid Cap</span>
+<span class="rounded-full bg-white px-3 py-2">Small Cap</span>
+<span class="rounded-full bg-white px-3 py-2">Flexi Cap</span>
+<span class="rounded-full bg-white px-3 py-2">Sector/Thematic</span>
+</div>
+</div>
+<div class="service-panel hidden" id="mf-debt">
+<h4 class="text-xl font-headline font-bold text-primary">Debt Funds</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">For stability, parking surplus cash, and lower-risk allocation. Useful for conservative investors, emergency buckets, or near-term goals.</p>
+<div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-primary">
+<span class="rounded-full bg-white px-3 py-2">Liquid</span>
+<span class="rounded-full bg-white px-3 py-2">Ultra Short</span>
+<span class="rounded-full bg-white px-3 py-2">Corporate Bond</span>
+<span class="rounded-full bg-white px-3 py-2">Banking & PSU</span>
+<span class="rounded-full bg-white px-3 py-2">Gilt</span>
+</div>
+</div>
+<div class="service-panel hidden" id="mf-hybrid">
+<h4 class="text-xl font-headline font-bold text-primary">Hybrid Funds</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Balanced allocation across equity and debt for investors who want growth with some cushion. Strong option for first-time investors and goal-based allocation.</p>
+<div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-primary">
+<span class="rounded-full bg-white px-3 py-2">Aggressive Hybrid</span>
+<span class="rounded-full bg-white px-3 py-2">Balanced Advantage</span>
+<span class="rounded-full bg-white px-3 py-2">Multi Asset</span>
+<span class="rounded-full bg-white px-3 py-2">Conservative Hybrid</span>
+</div>
+</div>
+<div class="service-panel hidden" id="mf-tax">
+<h4 class="text-xl font-headline font-bold text-primary">ELSS / Tax Saving Funds</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Built for investors who want equity participation with Section 80C tax-saving potential and a disciplined lock-in structure.</p>
+<div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-primary">
+<span class="rounded-full bg-white px-3 py-2">Tax Saving</span>
+<span class="rounded-full bg-white px-3 py-2">3-Year Lock-In</span>
+<span class="rounded-full bg-white px-3 py-2">Goal Planning</span>
+</div>
+</div>
+<div class="service-panel hidden" id="mf-index">
+<h4 class="text-xl font-headline font-bold text-primary">Index & Passive Funds</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Simple market-linked investing for those who prefer low-cost diversified exposure through benchmark-oriented strategies.</p>
+<div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-primary">
+<span class="rounded-full bg-white px-3 py-2">Nifty 50</span>
+<span class="rounded-full bg-white px-3 py-2">Sensex</span>
+<span class="rounded-full bg-white px-3 py-2">Next 50</span>
+<span class="rounded-full bg-white px-3 py-2">Index ETF</span>
+</div>
+</div>
+</div>
+<div class="rounded-3xl bg-primary p-6 text-white">
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-secondary-fixed">Fast route</p>
+<h4 class="mt-2 text-2xl font-headline font-bold">Need help choosing?</h4>
+<ul class="mt-4 space-y-3 text-sm text-primary-fixed">
+<li>• New investor starting first SIP</li>
+<li>• Goal-based portfolio creation</li>
+<li>• Lumpsum deployment planning</li>
+<li>• Tax-saving + long-term wealth mix</li>
+</ul>
+<div class="mt-6 flex flex-col gap-3">
+<a class="rounded-2xl bg-secondary px-5 py-3 text-center text-sm font-bold text-white" href="mutual-funds.html">Explore Mutual Funds</a>
+<a class="rounded-2xl bg-white/10 px-5 py-3 text-center text-sm font-bold text-white backdrop-blur" href="calculators.html">Use SIP Calculator</a>
+</div>
+</div>
+</div>
+</div>
 
-  <main id="home">
-    <section class="hero-bg">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700 border border-emerald-100">
-              Mutual Fund ARN: 356088
-            </div>
-            <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-headline font-extrabold tracking-tight text-slate-900 leading-tight">
-              Smart investing, insurance planning and lead-ready support in one place.
-            </h1>
-            <p class="mt-6 text-lg text-slate-600 max-w-2xl leading-8">
-              Start SIPs, understand insurance options, use financial calculators, and track your portfolio on Telegram with JustInvesting.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-4">
-              <a href="https://wa.me/918882332050?text=Hi%2C%20I%20want%20guidance%20for%20mutual%20funds%20and%20insurance." target="_blank" class="inline-flex items-center rounded-xl bg-emerald-600 px-6 py-3 text-white font-semibold shadow hover:bg-emerald-700">Chat on WhatsApp</a>
-              <a href="https://t.me/Mfddelhibot" target="_blank" class="inline-flex items-center rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-800 hover:bg-slate-100">Track Portfolio on Telegram</a>
-            </div>
-            <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div class="rounded-2xl bg-white p-4 shadow-sm border border-slate-200">
-                <p class="text-sm text-slate-500">Focus</p>
-                <p class="mt-1 font-bold text-slate-900">Mutual Funds</p>
-              </div>
-              <div class="rounded-2xl bg-white p-4 shadow-sm border border-slate-200">
-                <p class="text-sm text-slate-500">Partnered with</p>
-                <p class="mt-1 font-bold text-slate-900">InsuranceDekho / Square Insurance</p>
-              </div>
-              <div class="rounded-2xl bg-white p-4 shadow-sm border border-slate-200">
-                <p class="text-sm text-slate-500">Support</p>
-                <p class="mt-1 font-bold text-slate-900">Delhi NCR Ready</p>
-              </div>
-            </div>
-          </div>
+<!-- Life, Term and Protection -->
+<div class="rounded-[2rem] border border-outline-variant/20 bg-primary p-8 text-white shadow-sm shadow-primary/20 transition hover:-translate-y-1 hover:shadow-xl">
+<div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+<div class="max-w-xl">
+<div class="flex items-center gap-4 mb-5">
+<div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-tertiary-fixed">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-secondary-fixed">Life & Term Insurance</p>
+<h3 class="text-2xl md:text-3xl font-headline font-extrabold">Use simple inputs to understand cover before you compare policies.</h3>
+</div>
+</div>
+<p class="text-base leading-7 text-primary-fixed">Term insurance works best when linked to income protection, liabilities, and the number of years your family needs support. Use the quick planner below, then move to calculators or callback.</p>
+</div>
+<div class="rounded-3xl bg-white/10 p-4 text-sm text-primary-fixed backdrop-blur lg:max-w-[240px]">
+<p class="font-bold text-white">Common needs we handle</p>
+<div class="mt-3 flex flex-wrap gap-2 text-xs">
+<span class="rounded-full bg-white/10 px-3 py-2">Pure Term Cover</span>
+<span class="rounded-full bg-white/10 px-3 py-2">Income Protection</span>
+<span class="rounded-full bg-white/10 px-3 py-2">Family Security</span>
+<span class="rounded-full bg-white/10 px-3 py-2">Liability Shielding</span>
+</div>
+</div>
+</div>
+<div class="mt-8 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+<div class="rounded-3xl bg-white p-6 text-slate-900">
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-secondary">Quick cover planner</p>
+<div class="mt-5 space-y-4">
+<div>
+<label class="mb-2 block text-sm font-semibold text-slate-600">Annual Income (₹)</label>
+<input id="termIncome" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-lg font-bold outline-none transition focus:border-secondary" min="500000" step="100000" type="number" value="1200000"/>
+</div>
+<div>
+<label class="mb-2 block text-sm font-semibold text-slate-600">Outstanding Loans (₹)</label>
+<input id="termLoan" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-lg font-bold outline-none transition focus:border-secondary" min="0" step="100000" type="number" value="2500000"/>
+</div>
+<div>
+<label class="mb-2 block text-sm font-semibold text-slate-600">Years Family Needs Support</label>
+<input id="termYears" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-lg font-bold outline-none transition focus:border-secondary" min="5" max="40" step="1" type="number" value="15"/>
+</div>
+</div>
+<div class="mt-5 rounded-2xl bg-slate-900 p-4 text-white">
+<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Estimated term cover</p>
+<p id="termCoverOutput" class="mt-2 text-3xl font-headline font-extrabold">₹2.05 Cr</p>
+<p class="mt-2 text-sm text-slate-300">This is a planning estimate, not a policy quote.</p>
+</div>
+</div>
+<div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+<h4 class="text-xl font-headline font-bold">How to handle the calculators better</h4>
+<div class="mt-5 grid gap-4 sm:grid-cols-2">
+<div class="rounded-2xl bg-white/5 p-4">
+<p class="text-sm font-bold text-white">Start with SIP / Goal Planner</p>
+<p class="mt-2 text-sm leading-6 text-primary-fixed">See how much monthly investing is needed after protection basics are in place.</p>
+</div>
+<div class="rounded-2xl bg-white/5 p-4">
+<p class="text-sm font-bold text-white">Then check retirement</p>
+<p class="mt-2 text-sm leading-6 text-primary-fixed">Use retirement and goal calculators to decide whether term cover and investing stay balanced.</p>
+</div>
+<div class="rounded-2xl bg-white/5 p-4">
+<p class="text-sm font-bold text-white">Keep cover separate from returns</p>
+<p class="mt-2 text-sm leading-6 text-primary-fixed">Protection should solve risk. Investments should solve growth. Avoid mixing both blindly.</p>
+</div>
+<div class="rounded-2xl bg-white/5 p-4">
+<p class="text-sm font-bold text-white">Move to callback if confused</p>
+<p class="mt-2 text-sm leading-6 text-primary-fixed">One call can save you from underinsuring, overinsuring, or picking the wrong tenure.</p>
+</div>
+</div>
+<div class="mt-6 flex flex-col sm:flex-row gap-3">
+<a class="rounded-2xl bg-white px-5 py-3 text-center text-sm font-bold text-primary" href="calculators.html">Open Calculators</a>
+<a class="rounded-2xl bg-secondary px-5 py-3 text-center text-sm font-bold text-white" href="contact.html">Talk to Advisor</a>
+</div>
+</div>
+</div>
+</div>
 
-          <div class="rounded-3xl bg-white shadow-xl border border-slate-200 p-6 sm:p-8">
-            <h2 class="text-2xl font-headline font-extrabold text-slate-900">Get a callback</h2>
-            <p class="mt-2 text-slate-600">Share your details and get a quick response.</p>
-            <form action="https://formsubmit.co/rahul23jain@gmail.com" method="POST" class="mt-6 space-y-4">
-              <input type="hidden" name="_subject" value="New Lead from JustInvesting Website">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_next" value="https://justinvesting.in/">
-              <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">Name</label>
-                <input name="name" required type="text" placeholder="Your full name" class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">Mobile Number</label>
-                <input name="phone" required type="tel" placeholder="8882332050" class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500" />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">Requirement</label>
-                <select name="requirement" class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500">
-                  <option>Mutual Fund Investment</option>
-                  <option>SIP Planning</option>
-                  <option>Life Insurance</option>
-                  <option>Health Insurance</option>
-                  <option>Term Insurance</option>
-                  <option>Travel Insurance</option>
-                  <option>Need Callback</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">Message</label>
-                <textarea name="message" rows="4" placeholder="Tell us your requirement" class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
-              </div>
-              <button type="submit" class="w-full rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white hover:bg-slate-800">Request Callback</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- Health Insurance -->
+<div class="rounded-[2rem] border border-outline-variant/20 bg-white p-8 shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-xl">
+<div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+<div class="max-w-xl">
+<div class="flex items-center gap-4 mb-5">
+<div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-error-container/40 text-error">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-error">Health, Car & Personal Accident</p>
+<h3 class="text-2xl md:text-3xl font-headline font-extrabold text-primary">Protection options customers actively ask for.</h3>
+</div>
+</div>
+<p class="text-base leading-7 text-on-surface-variant">Health policy types commonly available through InsuranceDekho and Square Insurance include individual, family floater, senior citizen, critical illness, and related protection options. Square Insurance also highlights major car insurance structures like third-party, standalone own-damage, and comprehensive cover. Personal accident cover is also listed as a separate protection need. </p>
+</div>
+<div class="grid grid-cols-2 gap-2 lg:max-w-[240px]">
+<button class="health-chip rounded-full bg-primary px-4 py-2 text-xs font-bold text-white" data-health="individual">Individual</button>
+<button class="health-chip rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-health="family">Family Floater</button>
+<button class="health-chip rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-health="senior">Senior Citizen</button>
+<button class="health-chip rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-health="critical">Critical Illness</button>
+<button class="health-chip rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-health="car">Car Insurance</button>
+<button class="health-chip rounded-full bg-surface-container-high px-4 py-2 text-xs font-bold text-primary" data-health="pa">Personal Accident</button>
+</div>
+</div>
+<div class="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+<div class="rounded-3xl bg-surface-container-low p-6">
+<div id="health-panel-individual" class="health-panel">
+<h4 class="text-xl font-headline font-bold text-primary">Individual Health Insurance</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Best when one adult needs a separate sum insured and clean individual risk profile.</p>
+</div>
+<div id="health-panel-family" class="health-panel hidden">
+<h4 class="text-xl font-headline font-bold text-primary">Family Floater</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Useful for spouse + children under one shared sum insured when ages are relatively close and claims are manageable.</p>
+</div>
+<div id="health-panel-senior" class="health-panel hidden">
+<h4 class="text-xl font-headline font-bold text-primary">Senior Citizen Plans</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Built for parents and older adults with age-related hospitalization risk, waiting periods, and claim usability in focus.</p>
+</div>
+<div id="health-panel-critical" class="health-panel hidden">
+<h4 class="text-xl font-headline font-bold text-primary">Critical Illness Cover</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Useful as a lump-sum financial buffer for specified major illnesses, separate from regular hospitalization cover.</p>
+</div>
+<div id="health-panel-car" class="health-panel hidden">
+<h4 class="text-xl font-headline font-bold text-primary">Car Insurance</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Choose between mandatory third-party cover, standalone own-damage, or comprehensive cover depending on vehicle use, age, and protection need.</p>
+</div>
+<div id="health-panel-pa" class="health-panel hidden">
+<h4 class="text-xl font-headline font-bold text-primary">Personal Accident Cover</h4>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Adds an extra shield for accidental death, disability, and income disruption risk beyond regular health plans.</p>
+</div>
+<div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+<div class="rounded-2xl bg-white p-4"><p class="font-bold text-primary">What we compare</p><p class="mt-2 text-on-surface-variant">Sum insured, room rent, waiting period, co-pay, cashless usability.</p></div>
+<div class="rounded-2xl bg-white p-4"><p class="font-bold text-primary">What we avoid</p><p class="mt-2 text-on-surface-variant">Wrong floater mix, under-covering parents, low claim-friendly options.</p></div>
+</div>
+</div>
+<div class="rounded-3xl border border-outline-variant/15 bg-white p-6">
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-secondary">Popular requirement buckets</p>
+<div class="mt-4 grid gap-3">
+<div class="rounded-2xl bg-surface-container-low p-4 text-sm font-semibold text-primary">Self / Individual cover</div>
+<div class="rounded-2xl bg-surface-container-low p-4 text-sm font-semibold text-primary">Family floater for spouse + kids</div>
+<div class="rounded-2xl bg-surface-container-low p-4 text-sm font-semibold text-primary">Parents / senior citizen cover</div>
+<div class="rounded-2xl bg-surface-container-low p-4 text-sm font-semibold text-primary">Critical illness + accident layer</div>
+<div class="rounded-2xl bg-surface-container-low p-4 text-sm font-semibold text-primary">Car policy renewal / upgrade</div>
+</div>
+<div class="mt-6 flex flex-col gap-3">
+<a class="rounded-2xl bg-primary px-5 py-3 text-center text-sm font-bold text-white" href="insurance.html">Compare Insurance Options</a>
+<a class="rounded-2xl bg-surface-container-high px-5 py-3 text-center text-sm font-bold text-primary" href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20need%20help%20with%20health%2C%20car%20or%20personal%20accident%20insurance.">Ask on WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
 
-    <section id="services" class="py-16 sm:py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl">
-          <h2 class="text-3xl sm:text-4xl font-headline font-extrabold tracking-tight">Services</h2>
-          <p class="mt-4 text-slate-600 text-lg">Simple financial assistance for investors and families who want clarity, action and support.</p>
-        </div>
-        <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
-            <h3 class="text-xl font-bold font-headline">Mutual Funds</h3>
-            <p class="mt-3 text-slate-600">Guidance on SIPs, lumpsum investments, category selection and long-term planning.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
-            <h3 class="text-xl font-bold font-headline">Life & Term Insurance</h3>
-            <p class="mt-3 text-slate-600">Understand coverage, compare needs and choose practical protection.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
-            <h3 class="text-xl font-bold font-headline">Health Insurance</h3>
-            <p class="mt-3 text-slate-600">Support for family floater, individual cover and claim-friendly planning.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
-            <h3 class="text-xl font-bold font-headline">Travel Insurance</h3>
-            <p class="mt-3 text-slate-600">Protection for international trips with quick WhatsApp assistance.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="calculators" class="py-16 sm:py-20 bg-white border-y border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <h2 class="text-3xl sm:text-4xl font-headline font-extrabold tracking-tight">Popular calculators</h2>
-            <p class="mt-4 text-slate-600 text-lg">Useful tools for SIP, lumpsum, retirement and insurance planning. These cards are clickable and the calculators below actually work.</p>
-          </div>
-          <a href="https://wa.me/918882332050?text=Hi%2C%20I%20need%20help%20choosing%20the%20right%20calculator%20and%20investment%20plan." target="_blank" class="rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white hover:bg-emerald-700">Need help choosing?</a>
-        </div>
-        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <a href="#sip-calculator" class="rounded-2xl bg-slate-50 border border-slate-200 p-6 hover:border-emerald-400 hover:shadow-md transition"><h3 class="font-bold text-lg">SIP Calculator</h3><p class="mt-2 text-slate-600">Estimate long-term SIP growth.</p></a>
-          <a href="#lumpsum-calculator" class="rounded-2xl bg-slate-50 border border-slate-200 p-6 hover:border-emerald-400 hover:shadow-md transition"><h3 class="font-bold text-lg">Lumpsum Calculator</h3><p class="mt-2 text-slate-600">Know corpus potential from one-time investments.</p></a>
-          <a href="#retirement-calculator" class="rounded-2xl bg-slate-50 border border-slate-200 p-6 hover:border-emerald-400 hover:shadow-md transition"><h3 class="font-bold text-lg">Retirement Calculator</h3><p class="mt-2 text-slate-600">Plan future monthly income needs.</p></a>
-          <a href="#insurance-calculator" class="rounded-2xl bg-slate-50 border border-slate-200 p-6 hover:border-emerald-400 hover:shadow-md transition"><h3 class="font-bold text-lg">Insurance Need Calculator</h3><p class="mt-2 text-slate-600">Estimate practical cover required for your family.</p></a>
-        </div>
-
-        <div class="mt-12 grid lg:grid-cols-2 gap-8">
-          <div id="sip-calculator" class="rounded-3xl border border-slate-200 p-6 shadow-sm">
-            <h3 class="text-2xl font-bold">SIP Calculator</h3>
-            <div class="mt-6 grid sm:grid-cols-3 gap-4">
-              <div><label class="block text-sm font-medium text-slate-700">Monthly SIP (₹)</label><input id="sipMonthly" type="number" value="5000" step="10000" min="0" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Return %</label><input id="sipRate" type="number" value="12" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Years</label><input id="sipYears" type="number" value="10" class="mt-2 w-full rounded-xl border-slate-300"></div>
-            </div>
-            <button onclick="calcSip()" class="mt-5 rounded-xl bg-slate-900 px-5 py-3 text-white font-semibold">Calculate SIP</button>
-            <div class="mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-5"><div class="text-sm text-slate-600">Estimated maturity value</div><div id="sipResult" class="mt-1 text-2xl font-extrabold text-slate-900">₹0</div></div>
-          </div>
-
-          <div id="lumpsum-calculator" class="rounded-3xl border border-slate-200 p-6 shadow-sm">
-            <h3 class="text-2xl font-bold">Lumpsum Calculator</h3>
-            <div class="mt-6 grid sm:grid-cols-3 gap-4">
-              <div><label class="block text-sm font-medium text-slate-700">Investment (₹)</label><input id="lumpAmount" type="number" value="100000" step="10000" min="0" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Return %</label><input id="lumpRate" type="number" value="12" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Years</label><input id="lumpYears" type="number" value="5" class="mt-2 w-full rounded-xl border-slate-300"></div>
-            </div>
-            <button onclick="calcLumpsum()" class="mt-5 rounded-xl bg-slate-900 px-5 py-3 text-white font-semibold">Calculate Lumpsum</button>
-            <div class="mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-5"><div class="text-sm text-slate-600">Projected corpus</div><div id="lumpResult" class="mt-1 text-2xl font-extrabold text-slate-900">₹0</div></div>
-          </div>
-
-          <div id="retirement-calculator" class="rounded-3xl border border-slate-200 p-6 shadow-sm">
-            <h3 class="text-2xl font-bold">Retirement Calculator</h3>
-            <div class="mt-6 grid sm:grid-cols-2 gap-4">
-              <div><label class="block text-sm font-medium text-slate-700">Current age</label><input id="retAge" type="number" value="35" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Retirement age</label><input id="retTargetAge" type="number" value="60" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Monthly expense today (₹)</label><input id="retExpense" type="number" value="50000" step="10000" min="0" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Inflation %</label><input id="retInflation" type="number" value="6" class="mt-2 w-full rounded-xl border-slate-300"></div>
-            </div>
-            <button onclick="calcRetirement()" class="mt-5 rounded-xl bg-slate-900 px-5 py-3 text-white font-semibold">Calculate Retirement</button>
-            <div class="mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-5"><div class="text-sm text-slate-600">Indicative corpus needed</div><div id="retResult" class="mt-1 text-2xl font-extrabold text-slate-900">₹0</div></div>
-          </div>
-
-          <div id="insurance-calculator" class="rounded-3xl border border-slate-200 p-6 shadow-sm">
-            <h3 class="text-2xl font-bold">Insurance Need Calculator</h3>
-            <div class="mt-6 grid sm:grid-cols-2 gap-4">
-              <div><label class="block text-sm font-medium text-slate-700">Annual income (₹)</label><input id="insIncome" type="number" value="1200000" step="10000" min="0" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Outstanding loans (₹)</label><input id="insLoan" type="number" value="2000000" step="10000" min="0" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Existing cover (₹)</label><input id="insCover" type="number" value="1000000" step="10000" min="0" class="mt-2 w-full rounded-xl border-slate-300"></div>
-              <div><label class="block text-sm font-medium text-slate-700">Years family support needed</label><input id="insYears" type="number" value="15" class="mt-2 w-full rounded-xl border-slate-300"></div>
-            </div>
-            <button onclick="calcInsurance()" class="mt-5 rounded-xl bg-slate-900 px-5 py-3 text-white font-semibold">Estimate Cover</button>
-            <div class="mt-5 rounded-2xl bg-emerald-50 border border-emerald-100 p-5"><div class="text-sm text-slate-600">Indicative life cover</div><div id="insResult" class="mt-1 text-2xl font-extrabold text-slate-900">₹0</div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="telegram" class="py-16 sm:py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 class="text-3xl sm:text-4xl font-headline font-extrabold tracking-tight">Telegram portfolio bot</h2>
-            <p class="mt-4 text-slate-600 text-lg">Use the bot to qualify leads, collect numbers, and move serious prospects to WhatsApp quickly.</p>
-            <ul class="mt-6 space-y-3 text-slate-700">
-              <li>• Get SIP, tax saving and portfolio help inside Telegram</li>
-              <li>• Capture phone numbers for faster callback</li>
-              <li>• Move serious leads to WhatsApp instantly</li>
-              <li>• Use the bot as a lead-qualification funnel</li>
-            </ul>
-            <div class="mt-8 flex flex-wrap gap-4">
-              <a href="https://t.me/Mfddelhibot" target="_blank" class="rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white hover:bg-slate-800">Open Telegram Bot</a>
-              <a href="https://wa.me/918882332050?text=Hi%2C%20I%20need%20help%20with%20mutual%20funds%20or%20SIP%20planning." target="_blank" class="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-800 hover:bg-slate-100">Get Help on WhatsApp</a>
-            </div>
-          </div>
-          <div class="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-700 p-8 text-white shadow-xl">
-            <h3 class="text-2xl font-headline font-extrabold">Why users should use it</h3>
-            <div class="mt-6 space-y-4 text-slate-100">
-              <div class="rounded-2xl bg-white/10 p-4">1. Quick help for SIP, tax saving and portfolio review</div>
-              <div class="rounded-2xl bg-white/10 p-4">2. Share mobile number only when ready for callback</div>
-              <div class="rounded-2xl bg-white/10 p-4">3. Move directly to WhatsApp if immediate assistance is needed</div>
-              <div class="rounded-2xl bg-white/10 p-4">4. Faster response from your team on warm leads</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="py-16 sm:py-20 bg-slate-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10">
-        <div>
-          <h2 class="text-3xl sm:text-4xl font-headline font-extrabold tracking-tight">Contact JustInvesting</h2>
-          <p class="mt-4 text-slate-300 text-lg">Get direct support for investments and insurance planning.</p>
-          <div class="mt-8 space-y-4 text-slate-200">
-            <p><strong>Phone:</strong> <a href="tel:+918882332050" class="hover:text-emerald-400">+91 8882332050</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/918882332050?text=Hi%2C%20I%20want%20to%20connect%20with%20JustInvesting." target="_blank" class="hover:text-emerald-400">Chat now</a></p>
-            <p><strong>Address:</strong> Beri Wala Bagh, Hari Nagar, New Delhi - 110064</p>
-            <p><strong>Email:</strong> rahul23jain@gmail.com</p>
-          </div>
-        </div>
-        <div class="rounded-3xl bg-white text-slate-900 p-8 shadow-2xl">
-          <h3 class="text-2xl font-headline font-extrabold">Quick compliance note</h3>
-          <div class="mt-4 space-y-4 text-sm leading-6 text-slate-700">
-            <p>Mutual Fund ARN: 356088.</p>
-            <p>Insurance support through associated platforms including InsuranceDekho and Square Insurance.</p>
-            <p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p>
-            <p>Insurance is the subject matter of solicitation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="bg-slate-950 text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm">
-      <p>© 2026 JustInvesting. All rights reserved.</p>
-      <div class="flex items-center gap-4">
-        <a href="https://wa.me/918882332050?text=Hi%2C%20I%20want%20to%20connect%20with%20JustInvesting." target="_blank" class="hover:text-white">WhatsApp</a>
-        <a href="https://t.me/Mfddelhibot" target="_blank" class="hover:text-white">Telegram</a>
-      </div>
-    </div>
-  </footer>
-
-  <a href="https://wa.me/918882332050?text=Hi%2C%20I%20want%20guidance%20for%20mutual%20funds%20and%20insurance." target="_blank" aria-label="Chat on WhatsApp"
-     class="fixed bottom-5 right-5 rounded-full bg-emerald-500 px-5 py-3 text-white font-semibold shadow-2xl hover:bg-emerald-600 z-50">
-    WhatsApp
-  </a>
-
+<!-- Travel Insurance -->
+<div class="rounded-[2rem] border border-outline-variant/20 bg-white p-8 shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-xl xl:col-span-2">
+<div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+<div>
+<div class="flex items-center gap-4 mb-5">
+<div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-sky-700">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-sky-700">Travel Insurance</p>
+<h3 class="text-2xl md:text-3xl font-headline font-extrabold text-primary">International trip protection with known insurer options.</h3>
+</div>
+</div>
+<p class="text-base leading-7 text-on-surface-variant">InsuranceDekho lists multiple travel insurers such as Bajaj Allianz, ICICI Lombard, Care, Royal Sundaram, Tata AIG, HDFC ERGO, Digit, and IndusInd. Travel insurance comparisons commonly focus on medical emergencies, trip cancellation/interruption, baggage loss, passport loss, and emergency assistance.</p>
+<div class="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-primary">
+<span class="rounded-full bg-surface-container-low px-4 py-2">Single Trip</span>
+<span class="rounded-full bg-surface-container-low px-4 py-2">Multi Trip</span>
+<span class="rounded-full bg-surface-container-low px-4 py-2">Student Travel</span>
+<span class="rounded-full bg-surface-container-low px-4 py-2">Family Travel</span>
+<span class="rounded-full bg-surface-container-low px-4 py-2">Senior Travel</span>
+</div>
+<div class="mt-6 rounded-3xl bg-primary p-6 text-white">
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-secondary-fixed">What we help shortlist</p>
+<div class="mt-4 grid gap-3 sm:grid-cols-2 text-sm text-primary-fixed">
+<div class="rounded-2xl bg-white/10 p-4">Medical emergency cover</div>
+<div class="rounded-2xl bg-white/10 p-4">Trip delay / cancellation</div>
+<div class="rounded-2xl bg-white/10 p-4">Baggage & passport loss</div>
+<div class="rounded-2xl bg-white/10 p-4">Student / Schengen / family travel</div>
+</div>
+</div>
+</div>
+<div class="rounded-[2rem] bg-gradient-to-br from-sky-50 to-white p-6 border border-sky-100">
+<p class="text-xs font-bold uppercase tracking-[0.22em] text-sky-700">Insurer names visible on the market</p>
+<div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm font-bold text-primary">
+<div class="rounded-2xl bg-white px-4 py-4 shadow-sm">Bajaj Allianz</div>
+<div class="rounded-2xl bg-white px-4 py-4 shadow-sm">ICICI Lombard</div>
+<div class="rounded-2xl bg-white px-4 py-4 shadow-sm">Care</div>
+<div class="rounded-2xl bg-white px-4 py-4 shadow-sm">Royal Sundaram</div>
+<div class="rounded-2xl bg-white px-4 py-4 shadow-sm">Tata AIG</div>
+<div class="rounded-2xl bg-white px-4 py-4 shadow-sm">HDFC ERGO</div>
+<div class="rounded-2xl bg-white px-4 py-4 shadow-sm">Digit</div>
+<div class="rounded-2xl bg-white px-4 py-4 shadow-sm">IndusInd</div>
+</div>
+<div class="mt-6 rounded-3xl bg-white p-5 shadow-sm">
+<p class="font-headline text-lg font-bold text-primary">Fast conversion route</p>
+<p class="mt-2 text-sm leading-6 text-on-surface-variant">Ideal for travellers who want a quick quote, visa-friendly documentation support, and WhatsApp follow-up instead of waiting on email.</p>
+<div class="mt-5 flex flex-col sm:flex-row gap-3">
+<a class="rounded-2xl bg-primary px-5 py-3 text-center text-sm font-bold text-white" href="insurance.html">Travel Insurance Page</a>
+<a class="rounded-2xl bg-secondary px-5 py-3 text-center text-sm font-bold text-white" href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20need%20a%20travel%20insurance%20quote.">Get Quote on WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Calculator Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Financial Calculators</h2>
+<p class="text-on-surface-variant max-w-xl text-lg">Precise tools to help you visualize your growth and plan your future with accuracy.</p>
+</div>
+<a class="bg-surface-container-high text-primary px-6 py-3 rounded-xl font-headline font-bold hover:bg-surface-container-highest transition-all flex items-center" href="calculators.html">
+                    Explore All Calculators <span class="material-symbols-outlined ml-2">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<!-- SIP Calc -->
+<a class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 hover:border-secondary transition-all text-center group" href="calculators.html">
+<span class="material-symbols-outlined text-3xl text-secondary mb-4 block group-hover:scale-110 transition-transform">trending_up</span>
+<span class="font-headline font-bold text-primary">SIP</span>
+</a>
+<!-- Lumpsum Calc -->
+<a class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 hover:border-secondary transition-all text-center group" href="calculators.html">
+<span class="material-symbols-outlined text-3xl text-secondary mb-4 block group-hover:scale-110 transition-transform">account_balance</span>
+<span class="font-headline font-bold text-primary">Lumpsum</span>
+</a>
+<!-- Retirement Calc -->
+<a class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 hover:border-secondary transition-all text-center group" href="calculators.html">
+<span class="material-symbols-outlined text-3xl text-secondary mb-4 block group-hover:scale-110 transition-transform">beach_access</span>
+<span class="font-headline font-bold text-primary">Retirement</span>
+</a>
+<!-- EMI Calc -->
+<a class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 hover:border-secondary transition-all text-center group" href="calculators.html">
+<span class="material-symbols-outlined text-3xl text-secondary mb-4 block group-hover:scale-110 transition-transform">credit_card</span>
+<span class="font-headline font-bold text-primary">EMI</span>
+</a>
+<!-- Goal Calc -->
+<a class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 hover:border-secondary transition-all text-center group" href="calculators.html">
+<span class="material-symbols-outlined text-3xl text-secondary mb-4 block group-hover:scale-110 transition-transform">ads_click</span>
+<span class="font-headline font-bold text-primary">Goal Planner</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-24 bg-primary text-on-primary">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="text-4xl md:text-5xl font-headline font-bold mb-8 leading-tight">Expert Advice <br/>for Serious Growth.</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<h4 class="text-xl font-headline font-bold mb-2">ARN 356088</h4>
+<p class="text-on-primary-container leading-relaxed">We operate with the highest level of regulatory compliance and transparency.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<div>
+<h4 class="text-xl font-headline font-bold mb-2">Data-Driven Portfolios</h4>
+<p class="text-on-primary-container leading-relaxed">Our selections are based on rigorous quantitative analysis, not just market hype.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<h4 class="text-xl font-headline font-bold mb-2">Personalized Mentorship</h4>
+<p class="text-on-primary-container leading-relaxed">Real humans, real advice. We're here to guide your journey every step of the way.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div>
+<h4 class="text-xl font-headline font-bold mb-2">Bank-Grade Security</h4>
+<p class="text-on-primary-container leading-relaxed">Your data and investments are protected by top-tier encryption and security protocols.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined">visibility_off</span>
+</div>
+<div>
+<h4 class="text-xl font-headline font-bold mb-2">No Hidden Fees</h4>
+<p class="text-on-primary-container leading-relaxed">Transparency is our core. You know exactly what you're paying for at all times.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<img alt="Wealth professional" class="rounded-3xl object-cover h-[600px] w-full shadow-2xl" data-alt="Professional financial advisor in a sleek modern office setting, soft natural lighting, high-end professional atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRwd4DAC-hnMwbva4cVjTitvQ2_-KJApX6zhYngJM4WJF-3KJIpjJeXyWg6XAssNHCcp0TshbmMxSShqUVvFaJSG7MZ37BKfIXov4JJzoK4pcAd9iO7DNM1pkjHiqTVFZ9OqhalomqskS-pzVhdSjSAF-mruL7V2SmI6Srr-JlIBeQjTLdAazB8J_RZb8PqLqDXxtayDC4p9WStuMoKjbbIf8kecyHYGdq1aunHkr_9nc1CXbBh0tXEeCQG9pHOksPkswN5Ht9N-M"/>
+<div class="absolute -bottom-6 -left-6 bg-secondary p-8 rounded-2xl shadow-xl">
+<div class="text-5xl font-headline font-bold mb-2">12%</div>
+<div class="text-sm font-bold tracking-widest uppercase opacity-80">Avg. Portfolio Growth</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Preview -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Investment Insights</h2>
+<p class="text-on-surface-variant">Stay updated with the latest trends in the financial market.</p>
+</div>
+<a class="text-primary font-bold hover:underline hidden md:flex items-center" href="blog.html">View All Articles <span class="material-symbols-outlined ml-2">trending_flat</span></a>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Blog 1 -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm group hover:-translate-y-2 transition-transform duration-300">
+<div class="h-56 overflow-hidden">
+<img alt="Market news" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract stock market chart with green and red lines on a dark background, symbolizing financial growth and volatility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsw6kJZEDcLWWVb3lOMnyu24t-WdMC0C9UWUp8ipsKkGuIo-6H_YtxMhUBMq0bK65NCipbrloCJxTYKWWO9b5Wf1W4Krle5OWYC6PxKFuZ999aMhXtREiUewx0RKmilD1-S56aw91Ot_EIqg32qTO7wn_skMQUg4r-kekNIwW3jQZuOBXxjt6JPz2B58ksH2rBd2ORTipIIOUV7N5M5HvYxJHcMzMPtSu18NTvQwnfaoDA5IdIAyYFc2hsKDo-4xr34Jpap23CCD4"/>
+</div>
+<div class="p-8">
+<span class="text-xs font-bold text-secondary uppercase tracking-widest mb-3 block">Mutual Funds</span>
+<h3 class="text-xl font-headline font-bold text-primary mb-4 group-hover:text-secondary transition-colors">How to choose the right SIP for 2024</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-6 text-sm">A deep dive into historical performance and future projections for mid-cap funds...</p>
+<a class="text-primary font-bold inline-flex items-center text-sm" href="blog.html">Read More <span class="material-symbols-outlined text-base ml-1">arrow_right_alt</span></a>
+</div>
+</div>
+<!-- Blog 2 -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm group hover:-translate-y-2 transition-transform duration-300">
+<div class="h-56 overflow-hidden">
+<img alt="Insurance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Gold coins stacked neatly next to a green plant sprout, symbolizing growing savings and financial protection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCADK7hQMX0epGnwgflDx913RwcyTDChlwcBP1Z5m4ureo6LznDnr33IpjKgEGjDydrItYVjudXf6L6BzMuMjKgtmGUq5Ci0pQWqYsPrj8IQu9a84gZpP19d_Ril1vLDsRkVAZOdwafmTYwnqzAuIiZ4Er6YPkOquUrJHyrC-LiziEJeoujYUyOE8M5NQMRENNjWj2VPfLgNAS48IRoFOH7JhzP2z9Jpb7lDnyJ_MPWePuhbMWqwgVJ6XCbVFZgQDbj3LITHSknSHc"/>
+</div>
+<div class="p-8">
+<span class="text-xs font-bold text-secondary uppercase tracking-widest mb-3 block">Insurance</span>
+<h3 class="text-xl font-headline font-bold text-primary mb-4 group-hover:text-secondary transition-colors">Term Insurance vs Life Insurance</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-6 text-sm">Understanding the fundamental differences to ensure your family's safety...</p>
+<a class="text-primary font-bold inline-flex items-center text-sm" href="blog.html">Read More <span class="material-symbols-outlined text-base ml-1">arrow_right_alt</span></a>
+</div>
+</div>
+<!-- Blog 3 -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm group hover:-translate-y-2 transition-transform duration-300">
+<div class="h-56 overflow-hidden">
+<img alt="Tax saving" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Hand writing on a financial ledger with a calculator nearby, clean workspace with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqce-ne1wJ21EE1nq-lImwJhNGNKXW69_lO3rO4yoimm0dh87Uztp2WsNn3Lx9ZMdDjyN_19rI5MOfHeGM2a7jE1HdjiaSEPrw0OX-8kkv6SvYjlbK_rYQpshOwZjeg24KzhD1pEIlC4z6JWHO7Jo2qQuxk_fat2wW7PLn0MkoWBdeatW4nhp7qnFSeM9eRZuTd-C1oH6yQ-9yt3JGgU11DpeSaqo7UdBBb2IHWuWNZyk9ROrXoo-GE4OlPzal_QmGamBGG-N7V9A"/>
+</div>
+<div class="p-8">
+<span class="text-xs font-bold text-secondary uppercase tracking-widest mb-3 block">Tax Planning</span>
+<h3 class="text-xl font-headline font-bold text-primary mb-4 group-hover:text-secondary transition-colors">Top 5 Tax Saving ELSS Funds</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-6 text-sm">Save up to ₹46,800 in taxes while growing your wealth with these top picks...</p>
+<a class="text-primary font-bold inline-flex items-center text-sm" href="blog.html">Read More <span class="material-symbols-outlined text-base ml-1">arrow_right_alt</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 bg-surface">
+<div class="max-w-5xl mx-auto px-6">
+<div class="bg-primary-container p-12 md:p-20 rounded-[3rem] text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-tertiary/5 rounded-full blur-[80px]"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl font-headline font-bold text-white mb-6 leading-tight">Ready to Take Control <br/>of Your Wealth?</h2>
+<p class="text-on-primary-container text-lg mb-12 max-w-2xl mx-auto">Join thousands of successful investors who trust JustInvesting for their financial growth and security.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="bg-secondary text-white px-10 py-5 rounded-2xl font-headline font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg shadow-secondary/20" href="contact.html">Start Investing</a>
+<button class="bg-white/10 text-white backdrop-blur-md px-10 py-5 rounded-2xl font-headline font-bold text-lg hover:bg-white/20 transition-all">Get Free Consultation</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky CTAs -->
+<a aria-label="Chat on WhatsApp" class="floating-cta fixed bottom-24 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-white transition hover:scale-105 md:bottom-6" href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20want%20help%20with%20investments%20or%20insurance.">
+<span class="material-symbols-outlined">forum</span>
+</a>
+<div class="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur md:hidden">
+<div class="mx-auto flex max-w-xl gap-3">
+<a class="flex-1 rounded-2xl bg-primary px-4 py-3 text-center text-sm font-bold text-white" href="contact.html">Get Free Plan</a>
+<a class="flex-1 rounded-2xl bg-secondary px-4 py-3 text-center text-sm font-bold text-white" href="https://wa.me/918882332050?text=Hi%20JustInvesting%2C%20I%20want%20help%20with%20mutual%20funds%20or%20insurance.">WhatsApp</a>
+</div>
+</div>
 <script>
-function formatINR(v){return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(v||0)}
-function calcSip(){const P=+document.getElementById('sipMonthly').value||0;const annual=+document.getElementById('sipRate').value||0;const years=+document.getElementById('sipYears').value||0;const r=annual/12/100;const n=years*12;const fv=r===0?P*n:P*(((Math.pow(1+r,n)-1)/r)*(1+r));document.getElementById('sipResult').textContent=formatINR(Math.round(fv));}
-function calcLumpsum(){const P=+document.getElementById('lumpAmount').value||0;const annual=+document.getElementById('lumpRate').value||0;const years=+document.getElementById('lumpYears').value||0;const fv=P*Math.pow(1+annual/100,years);document.getElementById('lumpResult').textContent=formatINR(Math.round(fv));}
-function calcRetirement(){const age=+document.getElementById('retAge').value||0;const target=+document.getElementById('retTargetAge').value||0;const exp=+document.getElementById('retExpense').value||0;const inf=+document.getElementById('retInflation').value||0;const years=Math.max(target-age,0);const futureExpense=exp*Math.pow(1+inf/100,years);const corpus=futureExpense*12*20;document.getElementById('retResult').textContent=formatINR(Math.round(corpus));}
-function calcInsurance(){const income=+document.getElementById('insIncome').value||0;const loan=+document.getElementById('insLoan').value||0;const cover=+document.getElementById('insCover').value||0;const years=+document.getElementById('insYears').value||0;const needed=Math.max((income*years)+loan-cover,0);document.getElementById('insResult').textContent=formatINR(Math.round(needed));}
-calcSip();calcLumpsum();calcRetirement();calcInsurance();
+(function(){
+  const tabButtons = document.querySelectorAll('.service-tab-btn');
+  const panels = document.querySelectorAll('.service-panel');
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', function(){
+      const target = this.dataset.target;
+      panels.forEach(panel => panel.classList.toggle('hidden', panel.id !== target));
+      tabButtons.forEach(b => {
+        b.classList.remove('bg-primary','text-white');
+        b.classList.add('bg-surface-container-high','text-primary');
+      });
+      this.classList.add('bg-primary','text-white');
+      this.classList.remove('bg-surface-container-high','text-primary');
+    });
+  });
+
+  const healthButtons = document.querySelectorAll('.health-chip');
+  const healthPanels = document.querySelectorAll('.health-panel');
+  healthButtons.forEach(btn => {
+    btn.addEventListener('click', function(){
+      const target = 'health-panel-' + this.dataset.health;
+      healthPanels.forEach(panel => panel.classList.toggle('hidden', panel.id !== target));
+      healthButtons.forEach(b => {
+        b.classList.remove('bg-primary','text-white');
+        b.classList.add('bg-surface-container-high','text-primary');
+      });
+      this.classList.add('bg-primary','text-white');
+      this.classList.remove('bg-surface-container-high','text-primary');
+    });
+  });
+
+  const income = document.getElementById('termIncome');
+  const loan = document.getElementById('termLoan');
+  const years = document.getElementById('termYears');
+  const output = document.getElementById('termCoverOutput');
+  function formatIndianNumber(n){
+    return new Intl.NumberFormat('en-IN', {maximumFractionDigits: 0}).format(n);
+  }
+  function updateTermCover(){
+    const incomeVal = Math.max(parseFloat(income.value) || 0, 0);
+    const loanVal = Math.max(parseFloat(loan.value) || 0, 0);
+    const yearsVal = Math.max(parseFloat(years.value) || 0, 0);
+    const incomeProtection = incomeVal * Math.max(yearsVal, 10);
+    const total = incomeProtection + loanVal;
+    if(total >= 10000000){
+      output.textContent = '₹' + (total / 10000000).toFixed(2).replace(/\.00$/, '') + ' Cr';
+    } else {
+      output.textContent = '₹' + formatIndianNumber(total);
+    }
+  }
+  [income, loan, years].forEach(el => el && el.addEventListener('input', updateTermCover));
+  updateTermCover();
+})();
 </script>
-</body>
-</html>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto px-8 py-12">
+<div class="md:col-span-1">
+<a class="text-lg font-bold text-slate-800 dark:text-slate-200 font-headline mb-4" href="index.html">JustInvesting</a>
+<p class="font-['Inter'] text-xs leading-relaxed text-slate-500 dark:text-slate-400 mb-6">
+                    Premium wealth management solutions for the modern investor. We combine technology with human expertise to deliver superior results.
+                </p>
+<div class="flex space-x-4">
+<a class="text-slate-400 hover:text-secondary" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-400 hover:text-secondary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-slate-400 hover:text-secondary" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-headline font-bold text-slate-900 dark:text-white mb-6">Quick Links</h4>
+<ul class="space-y-3 font-['Inter'] text-xs">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="mutual-funds.html">Mutual Funds</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="insurance.html">Insurance</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="calculators.html">Calculators</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="blog.html">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-slate-900 dark:text-white mb-6">Support</h4>
+<ul class="space-y-3 font-['Inter'] text-xs">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="contact.html">Contact Us</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="#">Grievance Redressal</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="#">Sitemap</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors text-emerald-600 font-medium" href="telegram.html">Join Telegram</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-slate-900 dark:text-white mb-6">Legal</h4>
+<ul class="space-y-3 font-['Inter'] text-xs">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:underline transition-colors" href="#">Disclosure</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-6 border-t border-slate-200/50 dark:border-slate-800/50">
+<p class="font-['Inter'] text-[10px] leading-relaxed text-slate-400 dark:text-slate-500 text-center">
+                © 2024 JustInvesting. All rights reserved. Mutual Fund ARN: 356088. Mutual fund investments are subject to market risks, read all scheme related documents carefully.
+            </p>
+</div>
+<div class="mt-6 text-xs leading-5 text-slate-500"><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-1">Insurance is the subject matter of solicitation.</p><p class="mt-1">Mutual fund distribution under ARN-356088.</p><p class="mt-1">Insurance assistance available through InsuranceDekho and Square Insurance.</p><p class="mt-1"><span class="font-semibold text-slate-700">Phone:</span> <a class="hover:text-emerald-600" href="tel:+918882332050">+91 8882332050</a></p><p class="mt-1"><span class="font-semibold text-slate-700">Address:</span> Beri Wala Bagh, Hari Nagar, New Delhi - 110064</p></div><div class="max-w-7xl mx-auto px-8 pb-8"><div class="mt-10 rounded-xl border border-emerald-100 bg-emerald-50/60 p-5 text-sm leading-6 text-slate-700"><p class="font-semibold text-slate-900 mb-2">Important Disclosures</p><p>Mutual fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p><p class="mt-2">Insurance is the subject matter of solicitation. Policy issuance, features, benefits, exclusions and claims are subject to the insurer’s terms and conditions.</p><p class="mt-2">Past performance is not indicative of future returns. Returns shown in calculators or illustrations are only estimates and do not guarantee future performance.</p><p class="mt-2">Mutual fund transactions and related assistance are offered under ARN-356088. Insurance products, where applicable, are facilitated through InsuranceDekho and Square Insurance subject to their respective policy terms and insurer approvals.</p></div></div></footer>
+</body></html>
